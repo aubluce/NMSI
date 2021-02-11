@@ -1,0 +1,91 @@
+---
+title: "DDM_Calibration"
+author: "Aubrey Condor"
+date: "1/20/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+library(TAM)
+library(dplyr)
+library(WrightMap)
+setwd("C:/Users/condo/PycharmProjects/NMSI_stat")
+
+# change file depending on the construct
+##############################################################################
+raw_resp <- read.csv("R_LDC.csv")
+##############################################################################
+
+resp <- raw_resp[!!rowSums(!is.na(raw_resp)),]
+resp <- lapply(resp, as.numeric)
+resp <- as.data.frame(resp)
+
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+mod1 <- tam(resp)
+item_param <- mod1$xsi$xsi #item parameters
+item_thresh <- tam.threshold(mod1) #thurst thresholds
+summary(mod1) # summary of the model
+
+pers_abil <- mod1$person$EAP
+
+
+#Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of #the R code that generated the plot.
+```
+```{r}
+
+#################################################################################
+# UMV
+item_thresh['CuppaJoe.04_MC', 1] <- NA
+item_thresh['GuineaPig.01_MC..Pre18.', 1] <- NA
+item_thresh['Inventions.03ab_MCMC', 1] <- NA
+item_thresh['Inventions.04a_MConly', 1] <- NA
+item_thresh['Inventions.01_MC..Pre20.', 1] <- NA
+item_thresh['GuineaPig.02_MC..Pre.18.', 1] <- NA
+item_thresh['CuppaJoe.01_OE', 1] <- NA
+item_thresh['Painting.02_OE', 1] <- NA
+item_thresh['PopSongs.01_MC..pre20.', 2] <- NA
+###################################################################################
+# LDC
+item_thresh['Twitter.01_MC', 2] <- NA
+item_thresh['Twitter.02_MC.Pre18.', 1] <- NA
+item_thresh['Twitter.02_MC.Pre18.', 3] <- NA
+item_thresh['Discussion.01_MC..Pre18.', 1] <- NA
+item_thresh['Discussion.01_MC..Pre18.', 2] <- NA
+item_thresh['Cats.02b_MC', 1] <- NA
+item_thresh['MPG.04_MC..Pre18.', 1] <- NA
+item_thresh['MPG.04_MC..Pre18.', 3] <- NA
+item_thresh['Paternity.03_MC..Pre18.', 2] <- NA
+item_thresh['BirthRates.01_MC..Pre.18.', 2] <- NA
+
+
+```
+
+
+```{r pressure, echo=FALSE}
+
+library(RColorBrewer)
+ncat <- 5
+I <- ncol(mod1$resp)
+itemlevelcolors <- matrix(rep( RColorBrewer::brewer.pal(ncat, "Set1"), I),
+                           byrow=TRUE, ncol=ncat)
+
+wrightMap(pers_abil, item_thresh, thr.sym.col.fg=itemlevelcolors,
+          thr.sym.col.bg=itemlevelcolors,label.items.srt=65)
+
+
