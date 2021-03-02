@@ -1,0 +1,316 @@
+================================================================================
+DDM - LDC                                                  Thu Feb 11 11:01 2021
+SUMMARY OF THE ESTIMATION
+===========================================================Build: Jan 22 2020===
+Estimation method was: Bock-Aitkin Quadrature with 80 nodes and node range (-6.000,6.000)
+No node filtering not applicable
+Xsi increment max:    1.00000
+FacOldXsi:    0.00000
+Assumed population distribution was: Gaussian
+Location constraint was: CASES
+Scale constraint was: Not applicable
+The Data File: DDM_LDC_scores.txt
+The format:  id 1-4 responses 5-16
+No case weights
+The regression model:
+Grouping Variables:
+The item model: item+item*step
+Slopes are fixed
+Cases in file: 394  Cases in estimation: 321
+Final Deviance:                                2859.76086
+Akaike Information Criterion (AIC):            2905.76086
+Akaike Information Criterion Corrected (AICc): 2902.81042
+Bayesian Information Criterion (BIC):          2992.50401
+Total number of estimated parameters: 23
+The number of iterations: 52
+Termination criteria:  Max iterations=1000, Parameter Change= 0.00010
+                       Deviance Change= 0.00010
+Iterations terminated because the deviance convergence criteria was reached
+Random number generation seed:    1.00000
+Number of nodes used when drawing PVs: 2000
+Number of nodes used when computing fit: 200
+Number of plausible values to draw: 5
+Maximum number of iterations without a deviance improvement: 100
+Maximum number of Newton steps for each parameter in M-step: 10
+Value for obtaining finite MLEs for zero/perfects:    0.30000
+
+================================================================================
+================================================================================
+DDM - LDC                                                  Thu Feb 11 11:01 2021
+TABLES OF RESPONSE MODEL PARAMETER ESTIMATES
+===========================================================Build: Jan 22 2020===
+TERM 1: item
+--------------------------------------------------------------------------------------------------------------
+TERM 1: item
+
+   VARIABLES                               UNWEIGHTED FIT             WEIGHTED FIT
+---------------                        -----------------------   -----------------------
+     item           ESTIMATE  ERROR^   MNSQ       CI        T    MNSQ       CI        T
+--------------------------------------------------------------------------------------------------------------
+ 1   Twitter.01_..   -1.970   0.240    0.52 ( 0.77, 1.23) -5.0   0.77 ( 0.72, 1.28) -1.7
+ 2   Twitter.02_..   -0.361   0.175    1.07 ( 0.65, 1.35)  0.5   1.05 ( 0.67, 1.33)  0.3
+ 3   Twitter.03a..    1.492   0.217    1.70 ( 0.77, 1.23)  5.0   1.02 ( 0.79, 1.21)  0.2
+ 4   Discussion...    0.261   0.151    1.14 ( 0.71, 1.29)  1.0   1.11 ( 0.74, 1.26)  0.8
+ 5   Cats.02a_MC      0.235   0.102    0.83 ( 0.77, 1.23) -1.5   0.84 ( 0.77, 1.23) -1.4
+ 6   Cats.02b_MC      0.259   0.118    1.00 ( 0.71, 1.29)  0.1   1.00 ( 0.66, 1.34)  0.0
+ 7   Cats.02c_MC      0.725   0.167    1.19 ( 0.70, 1.30)  1.2   1.18 ( 0.69, 1.31)  1.1
+ 8   MPG.04_MC.P..   -0.593   0.128    1.16 ( 0.70, 1.30)  1.1   1.11 ( 0.71, 1.29)  0.7
+ 9   Cats.02abc_..    0.035   0.188    1.09 ( 0.67, 1.33)  0.6   1.08 ( 0.72, 1.28)  0.6
+--------------------------------------------------------------------------------
+An asterisk next to a parameter estimate indicates that it is constrained
+Separation Reliability =  0.968
+Chi-square test of parameter equality =     172.26,  df = 9,  Sig Level = 0.000
+^ Quick standard errors have been used
+Term is a fixed effect
+
+TERM 2: item*step
+----------------------------------------------------------------------------------------------------------------------------
+TERM 2: item*step
+
+          VARIABLES                                       UNWEIGHTED FIT             WEIGHTED FIT
+------------------------------                        -----------------------   -----------------------
+     item         category         ESTIMATE  ERROR^   MNSQ       CI        T    MNSQ       CI        T
+----------------------------------------------------------------------------------------------------------------------------
+ 2   Twitter.02_..    0                               1.22 ( 0.65, 1.35)  1.2   1.13 ( 0.68, 1.32)  0.7
+ 2   Twitter.02_..    1              1.014   0.404    1.23 ( 0.65, 1.35)  1.2   1.07 ( 0.39, 1.61)  0.3
+ 2   Twitter.02_..    2             -1.014*           0.91 ( 0.65, 1.35) -0.5   0.99 ( 0.69, 1.31) -0.1
+ 4   Discussion...    0                               1.08 ( 0.71, 1.29)  0.6   1.06 ( 0.76, 1.24)  0.5
+ 4   Discussion...    1              0.379   0.273    1.04 ( 0.71, 1.29)  0.3   1.03 ( 0.68, 1.32)  0.2
+ 4   Discussion...    2             -0.379*           1.18 ( 0.71, 1.29)  1.2   1.12 ( 0.75, 1.25)  0.9
+ 5   Cats.02a_MC      0                               0.54 ( 0.77, 1.23) -4.8   0.88 ( 0.71, 1.29) -0.8
+ 5   Cats.02a_MC      1             -0.978   0.207    0.91 ( 0.77, 1.23) -0.7   1.01 ( 0.69, 1.31)  0.1
+ 5   Cats.02a_MC      2             -1.763   0.187    0.92 ( 0.77, 1.23) -0.6   0.92 ( 0.86, 1.14) -1.1
+ 5   Cats.02a_MC      3              3.538   0.588    0.60 ( 0.77, 1.23) -4.0   0.95 ( 0.00, 2.04)  0.1
+ 5   Cats.02a_MC      4             -0.797*           4.62 ( 0.77, 1.23) 17.1   0.84 ( 0.65, 1.35) -0.9
+ 6   Cats.02b_MC      0                               0.76 ( 0.71, 1.29) -1.7   0.96 ( 0.61, 1.39) -0.2
+ 6   Cats.02b_MC      1              1.795   0.285    1.46 ( 0.71, 1.29)  2.7   1.04 ( 0.00, 2.94)  0.4
+ 6   Cats.02b_MC      2             -3.488   0.283    0.98 ( 0.71, 1.29) -0.1   1.01 ( 0.68, 1.32)  0.1
+ 6   Cats.02b_MC      3             -1.109   0.245    1.03 ( 0.71, 1.29)  0.2   1.05 ( 0.80, 1.20)  0.5
+ 6   Cats.02b_MC      4              2.802*           0.65 ( 0.71, 1.29) -2.7   0.99 ( 0.26, 1.74)  0.1
+ 7   Cats.02c_MC      0                               1.08 ( 0.70, 1.30)  0.6   1.01 ( 0.69, 1.31)  0.1
+ 7   Cats.02c_MC      1             -2.087   0.260    1.06 ( 0.70, 1.30)  0.5   1.05 ( 0.89, 1.11)  0.9
+ 7   Cats.02c_MC      2              0.712   0.300    1.58 ( 0.70, 1.30)  3.3   1.13 ( 0.68, 1.32)  0.8
+ 7   Cats.02c_MC      3              1.376*           1.28 ( 0.70, 1.30)  1.7   1.04 ( 0.31, 1.69)  0.2
+ 8   MPG.04_MC.P..    0                               0.95 ( 0.70, 1.30) -0.3   1.00 ( 0.61, 1.39)  0.0
+ 8   MPG.04_MC.P..    1             -0.977   0.239    1.08 ( 0.70, 1.30)  0.6   1.04 ( 0.81, 1.19)  0.4
+ 8   MPG.04_MC.P..    2              1.572   0.374    1.00 ( 0.70, 1.30)  0.0   1.02 ( 0.41, 1.59)  0.2
+ 8   MPG.04_MC.P..    3             -0.595*           1.33 ( 0.70, 1.30)  2.0   1.16 ( 0.74, 1.26)  1.1
+ 9   Cats.02abc_..    0                               1.26 ( 0.67, 1.33)  1.5   1.16 ( 0.72, 1.28)  1.1
+ 9   Cats.02abc_..    1             -0.684   0.249    1.02 ( 0.67, 1.33)  0.2   1.01 ( 0.87, 1.13)  0.1
+ 9   Cats.02abc_..    2              0.684*           0.91 ( 0.67, 1.33) -0.5   0.95 ( 0.73, 1.27) -0.4
+--------------------------------------------------------------------------------
+An asterisk next to a parameter estimate indicates that it is constrained
+^ Quick standard errors have been used
+================================================================================
+================================================================================
+DDM - LDC                                                  Thu Feb 11 11:01 2021
+TABLES OF POPULATION MODEL PARAMETER ESTIMATES
+===========================================================Build: Jan 22 2020===
+REGRESSION COEFFICIENTS
+
+
+
+Regression Variable
+
+CONSTANT                   0.000*
+-----------------------------------------------
+An asterisk next to a parameter estimate indicates that it is constrained
+===============================================
+UNCONDITIONAL COVARIANCE/CORRELATION MATRIX
+
+
+
+Dimension
+
+Dimension_1
+-------------------------------------------
+Variance                   1.247  ( 0.089)
+-------------------------------------------
+An asterisk next to a parameter estimate indicates that it is constrained
+
+===========================================
+
+RELIABILITY COEFFICIENTS
+------------------------
+
+Dimension: (Dimension_1)
+-----------------------
+ MLE Person separation RELIABILITY:  Unavailable
+ WLE Person separation RELIABILITY:  Unavailable
+ EAP/PV RELIABILITY:                  0.488
+------------------------
+================================================================================
+DDM - LDC                                                  Thu Feb 11 11:01 2021
+MAP OF LATENT DISTRIBUTIONS AND RESPONSE MODEL PARAMETER ESTIMATES
+===========================================================Build: Jan 22 2020===
+             Terms in the Model (excl Step terms)
+
+                               +item
+----------------------------------------------------
+                |                                  |
+                |                                  |
+                |                                  |
+   4            |                                  |
+                |                                  |
+                |                                  |
+                |                                  |
+                |                                  |
+                |                                  |
+   3           X|                                  |
+               X|                                  |
+                |                                  |
+               X|                                  |
+               X|                                  |
+               X|                                  |
+              XX|                                  |
+   2           X|                                  |
+              XX|                                  |
+             XXX|                                  |
+            XXXX|3                                 |
+            XXXX|                                  |
+           XXXXX|                                  |
+           XXXXX|                                  |
+   1      XXXXXX|                                  |
+         XXXXXXX|                                  |
+          XXXXXX|7                                 |
+         XXXXXXX|                                  |
+       XXXXXXXXX|                                  |
+      XXXXXXXXXX|4 5 6                             |
+         XXXXXXX|9                                 |
+   0   XXXXXXXXX|                                  |
+      XXXXXXXXXX|                                  |
+       XXXXXXXXX|2                                 |
+      XXXXXXXXXX|8                                 |
+        XXXXXXXX|                                  |
+         XXXXXXX|                                  |
+  -1      XXXXXX|                                  |
+            XXXX|                                  |
+           XXXXX|                                  |
+           XXXXX|                                  |
+             XXX|                                  |
+              XX|                                  |
+              XX|                                  |
+  -2          XX|1                                 |
+               X|                                  |
+               X|                                  |
+               X|                                  |
+               X|                                  |
+                |                                  |
+               X|                                  |
+  -3            |                                  |
+                |                                  |
+                |                                  |
+                |                                  |
+                |                                  |
+                |                                  |
+  -4            |                                  |
+                |                                  |
+                |                                  |
+                |                                  |
+====================================================
+Each 'X' represents 2.3 cases
+
+====================================================
+================================================================================
+DDM - LDC                                                  Thu Feb 11 11:01 2021
+MAP OF LATENT DISTRIBUTIONS AND THRESHOLDS
+===========================================================Build: Jan 22 2020===
+                                              Generalised-Item Thresholds
+
+
+--------------------------------------------------------------------------------------
+                                              |                                      |
+                                              |                                      |
+                                              |                                      |
+   4                                         X|                                      |
+                                              |                                      |
+                                              |                                      |
+                                              |                                      |
+                                              |                                      |
+                                              |                                      |
+   3                                        XX|6.4                                   |
+                                           XXX|                                      |
+                                             X|                                      |
+                                          XXXX|                                      |
+                                           XXX|7.3                                   |
+                                         XXXXX|                                      |
+                                       XXXXXXX|                                      |
+   2                                    XXXXXX|                                      |
+                                       XXXXXXX|                                      |
+                                 XXXXXXXXXXXXX|5.4                                   |
+                              XXXXXXXXXXXXXXXX|3 5.3                                 |
+                                XXXXXXXXXXXXXX|                                      |
+                          XXXXXXXXXXXXXXXXXXXX|                                      |
+                         XXXXXXXXXXXXXXXXXXXXX|7.2                                   |
+   1                  XXXXXXXXXXXXXXXXXXXXXXXX|9.2                                   |
+                    XXXXXXXXXXXXXXXXXXXXXXXXXX|                                      |
+                     XXXXXXXXXXXXXXXXXXXXXXXXX|4.2                                   |
+                   XXXXXXXXXXXXXXXXXXXXXXXXXXX|                                      |
+         XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX|                                      |
+      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX|                                      |
+                   XXXXXXXXXXXXXXXXXXXXXXXXXXX|8.3                                   |
+   0      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX|4.1 8.2                               |
+       XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX|2.2                                   |
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX|6.3                                   |
+       XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX|2.1                                   |
+             XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX|                                      |
+                XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX|5.2 9.1                               |
+  -1                  XXXXXXXXXXXXXXXXXXXXXXXX|6.1 6.2                               |
+                             XXXXXXXXXXXXXXXXX|                                      |
+                           XXXXXXXXXXXXXXXXXXX|                                      |
+                           XXXXXXXXXXXXXXXXXXX|5.1 7.1                               |
+                                 XXXXXXXXXXXXX|                                      |
+                                       XXXXXXX|8.1                                   |
+                                     XXXXXXXXX|                                      |
+  -2                                   XXXXXXX|1                                     |
+                                          XXXX|                                      |
+                                        XXXXXX|                                      |
+                                           XXX|                                      |
+                                        XXXXXX|                                      |
+                                             X|                                      |
+                                            XX|                                      |
+  -3                                         X|                                      |
+                                             X|                                      |
+                                              |                                      |
+                                              |                                      |
+                                              |                                      |
+                                              |                                      |
+  -4                                          |                                      |
+                                              |                                      |
+                                              |                                      |
+                                              |                                      |
+======================================================================================
+Each 'X' represents 0.6 cases
+The labels for thresholds show the levels of
+    item, and category, respectively
+
+======================================================================================
+================================================================================
+DDM - LDC                                                  Thu Feb 11 11:01 2021
+TABLES OF GIN Thresholds
+===========================================================Build: Jan 22 2020===
+GIN Number  Threshold           GIN Labels
+--------------------------------------------------------------------------------
+1.1	    -1.970		item	1	Twitter.01_MC	
+2.1	    -0.541		item	2	Twitter.02_MC.Pre18	
+2.2	    -0.180		item	2	Twitter.02_MC.Pre18	
+3.1	     1.491		item	3	Twitter.03a_MConly	
+4.1	    -0.075		item	4	Discussion.01_MCPre18	
+4.2	     0.597		item	4	Discussion.01_MCPre18	
+5.1	    -1.470		item	5	Cats.02a_MC	
+5.2	    -0.816		item	5	Cats.02a_MC	
+5.3	     1.573		item	5	Cats.02a_MC	
+5.4	     1.683		item	5	Cats.02a_MC	
+6.1	    -0.942		item	6	Cats.02b_MC	
+6.2	    -0.901		item	6	Cats.02b_MC	
+6.3	    -0.358		item	6	Cats.02b_MC	
+6.4	     3.081		item	6	Cats.02b_MC	
+7.1	    -1.419		item	7	Cats.02c_MC	
+7.2	     1.178		item	7	Cats.02c_MC	
+7.3	     2.424		item	7	Cats.02c_MC	
+8.1	    -1.678		item	8	MPG.04_MC.Pre18	
+8.2	    -0.148		item	8	MPG.04_MC.Pre18	
+8.3	     0.134		item	8	MPG.04_MC.Pre18	
+9.1	    -0.840		item	9	Cats.02abc_MC	
+9.2	     0.910		item	9	Cats.02abc_MC	
+================================================================================

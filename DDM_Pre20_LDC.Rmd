@@ -1,0 +1,215 @@
+---
+title: "LDC Pretest Fall 20 Calibration"
+author: 
+date: "2/19/2021"
+output: html_document
+toc: true
+toc_float: true
+---
+
+### 1. LDC (linking data to claim) Construct Map
+<a href="https://cr4cradmin.bear-apps.com/constructs/public/XrCPI6iYnE6xBrywk46OH1p8jDo17Z" target = "_blank">Link </a> to construct map
+
+### 2. Items & Scoring Guides
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/58/scoring_guides/390/score_assignments" target ="_blank"> BirthRates.01_MC 
+</a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/57/scoring_guides/43/score_assignments" target = "_blank">Cats.02a_MC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/57/scoring_guides/46/score_assignments" target = "_blank">Cats.02b_MC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/82/scoring_guides/339/score_assignments" target = "_blank">Cats.02c_MC  </a>
+  + Very difficult L1 item; <a href="https://docs.google.com/document/d/1AllHGVgKL2f0A4btRaKzW0-oioxC-VFR870_deN3C50/edit" target = "_blank">here  </a> is the response distributions.
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/57/scoring_guides/528/score_assignments" target = "_blank">Cats.02abc_MC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/56/scoring_guides/422/score_assignments" target = "_blank">Discuss.01_MC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/60/scoring_guides/400/score_assignments" target = "_blank">MPG.04_MC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/59/scoring_guides/423/score_assignments" target = "_blank">Paternity.01ab_MC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/83/scoring_guides/404/score_assignments" target = "_blank">Paternity.03_MC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/57/scoring_guides/43/score_assignments" target = "_blank">Twitter.01_MC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/56/scoring_guides/405/score_assignments" target = "_blank">Twitter.02_MC  </a>
+* <a href="https://docs.google.com/spreadsheets/d/1uVR8loM1NVqG1SfMhqXon0br003yPmYgH0hcUyldxno/edit#gid=2089381674" target = "_blank">Twitter.03ab_MCMC  </a>
+
+##### Response choice distributions
+* See <a href="https://cr4cradmin.bear-apps.com/answers_reports?scheduled_activities=36" target = "_blank">answers report.  </a> 
+
+```{r setup, include=FALSE}
+require(WrightMap)
+require(tidyverse)
+require(RColorBrewer)
+require(knitr)
+require(kableExtra)
+
+knitr::opts_chunk$set(echo = TRUE)
+
+
+#Import ConQuest data
+LDC <- CQmodel(p.est = "data/LDC_WLE.txt", show = "data/LDC_SHOW.txt")
+
+#full item names
+i.names<-LDC$RMP$item$item
+i.names[1,] <- "Twitter1_MC"
+i.names[2,] <- "Twitter2_MC"
+i.names[3,] <- "Twitter3a_MConl"
+i.names[4,] <- "Discuss1_MC"
+i.names[5,] <- "Cats2a_MC"
+i.names[6,] <- "Cats2b_MC"
+i.names[7,] <- "Cats2c_MC"
+i.names[8,] <- "MPG4_MC"
+i.names[9,] <- "Catsabc_MC" #this is actually Cats2abc but dropping 2 to sort better
+i.names[10,] <- "Twitter3ab_MCMC"
+i.names[11,] <- "Paternity3_MC"
+i.names[12,] <- "Paternity1ab_MC"
+i.names[13,] <- "Birthrate1_MC"
+itemnames <- sort(i.names)
+
+#thetas
+LDC_est<-LDC$p.est$`est (d1)`
+
+#move thresholds for items that skipped levels (by design)
+LDC_thresh <- make.thresholds(LDC) %>% 
+  as.data.frame()
+
+# mannually adjusting thresholds for skipped levels etc.
+
+# Twitter 1 - L2 --> L3
+LDC_thresh[1, 3] <- LDC_thresh[1, 2]
+LDC_thresh[1, 2] <- NA
+
+# Twitter 2 - L1 --> L3
+LDC_thresh[2, 3] <- LDC_thresh[2, 1]
+LDC_thresh[2, 1] <- NA
+
+# Discuss 1 - L1 --> L3
+LDC_thresh[4, 3] <- LDC_thresh[4, 1]
+LDC_thresh[4, 1] <- NA
+
+# MPG04 L2-> L4 L1 -> L2
+LDC_thresh[8, 4] <- LDC_thresh[8, 2]
+LDC_thresh[8, 2] <- LDC_thresh[8, 1]
+LDC_thresh[8, 1] <- NA
+
+# MPG04 L1 keeping it at that level even though it was scored as L2.
+
+# Birthrates: L2 -> L3, L1 -> L2
+LDC_thresh[13, 3] <- LDC_thresh[13, 2]
+LDC_thresh[13, 2] <- LDC_thresh[13, 1]
+LDC_thresh[13, 1] <- NA
+
+# Paternity L3 -> L4, L2 -> L3, L1 -> L2
+LDC_thresh[11, 4] <- LDC_thresh[11, 3]
+LDC_thresh[11, 3] <- LDC_thresh[11, 2]
+LDC_thresh[11, 2] <- LDC_thresh[11, 1]
+LDC_thresh[11, 1] <- NA
+
+# get item rownames as the first column
+LDC_thresh <- LDC_thresh %>% 
+  rownames_to_column(., "item")
+
+LDC_thresh[9, 1] <- "Catsabc_MC"
+LDC_thresh[11, 1] <- "Paternity3_MC"
+LDC_thresh[12, 1] <- "Paternity1ab_MC"
+
+LDC_thresh <- LDC_thresh %>% arrange(item)
+
+# get the right item names as set above
+LDC_thresh$item <- itemnames
+
+LDC_thresh <- LDC_thresh %>% arrange(item) 
+#View(LDC_thresh)
+
+# add col names for LDC_thresh df
+colnames(LDC_thresh) <- c("item", "L1", "L2 ", "L3", "L4")
+
+#get rid of item col for WrightMap 1
+thresh4wm1 <- LDC_thresh %>% select(-item)
+
+
+# transposing item_thresh for WM2
+library(tidyr)
+#transposing item_thresh to tt for Wright map #2 w/thresholds on x-axis   
+tt <- LDC_thresh %>%
+  gather(var, value, -item) %>% 
+  spread(item, value) 
+#dim(tt) # 4 x 14
+
+# drop the first column
+tt <- tt[(1:4), (2:14)]
+
+# x-axis labels for Wright map #2
+itemnames2 <- c("L0 vs.L1", "L1 vs.L2", "L2 vs.L3", "L3 vs.L4")
+#colors for Wright map #2
+itemcolors <- c("#D7191C", "#2B83BA", "forestgreen", "blueviolet")
+
+#color code categories
+ncat <- ncol(thresh4wm1)
+nitems <- nrow(thresh4wm1)
+itemlevelcolors <- matrix(rep( RColorBrewer::brewer.pal(ncat, "Set1"), nitems), byrow=TRUE, ncol=ncat)
+
+```
+
+### 3. Wright Maps
+
+```{r plots, echo=FALSE, results = FALSE, fig.keep = 'all', message = FALSE, warning = FALSE, fig.align = "center"}
+
+#Wright map #1 (items on x-axis)
+wrightMap(LDC_est, thresh4wm1,
+          label.items = itemnames, 
+          label.items.srt = 65, 
+          thr.sym.col.fg = itemlevelcolors, 
+          thr.sym.col.bg = itemlevelcolors,
+          axis.items="")
+
+#mean(LDC$p.est$`est (d1)`)
+#sd(LDC$p.est$`est (d1)`)
+
+#Wright map #2 (thresh on x-axis)
+wrightMap(LDC_est, tt,
+          label.items = itemnames2,
+          main.title   = "Wright Map: LDC (by thresholds)",
+          thr.sym.col.fg = itemcolors,
+          thr.sym.col.bg = itemcolors,
+          axis.items = "Threshold")
+
+```
+
+```{r calib.results, echo=FALSE, results = FALSE}
+n.cases <- length(LDC_est)
+n.items <- length(i.names)
+eap.rel <- LDC$rel.coef[[3]]
+min.Wfit <- min(LDC$RMP$item$W.fit)
+max.Wfit <- max(LDC$RMP$item$W.fit)
+```
+#####   Calibration stats
+
+*  `r n.cases` cases (the overall DDM sample is 2,265. Of which, 422 are AP Stats students. 28 students excluded due to answering less than 20% of items; 3 more dropped for unknown reason.)
+*  `r n.items` scorable "units"
+*  EAP/PV Reliability: `r eap.rel`
+*  Weighted MNSQ range: `r min.Wfit` - `r max.Wfit`
+
+
+#####   Observations
+
+* Birthrate
+  + Multi-select item. Seems to be working well.
+* Discussion
+  + Multi-select with a single correct answer. Seems to be working.
+* Paternity
+* MPG
+  + The most correct choice scored at L4 but should be downgraded to L3.
+  + Not sure if partial credit (L2) is needed for this item. 
+* Cats
+    + Cats.02c very difficult. It asks about sampling method to support a claim. Try polytmous scoring?
+*  Twitter
+    + Twitter.01 L1 threshold very low: only 5% scored into 0. Should it be dichotomously scored?
+    + L3 thresholds are quite low. More like L2s. 
+    + Twitter3_MCMC is SR version of Claim + Explanation. Selecting all the "correct" explanations is rare/hard (L4) although selecting a couple (L3) is fairly easy/common.
+
+
+### 4. Threshold Difficulty
+```{r tables, echo=FALSE, message = FALSE, warning = FALSE}
+
+knitr::kable(LDC_thresh, format = "html", digits = 2) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
+                full_width = TRUE, font_size = 12)
+
+```
+
+### 5. Item Analysis
+* <a href="https://drive.google.com/file/d/1a3chPFPDbQ2-XYdyFu3kSCwGR9HkPwRC/view?usp=sharing" target = "_blank">Link to Item Analysis </a> (ConQuest output)   

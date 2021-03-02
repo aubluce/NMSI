@@ -1,0 +1,20 @@
+Title DDM - MRC;
+
+datafile DDM_MRC_scores.txt;
+format responses 1-9;
+labels << MRC_labels.txt;
+codes 0,1,2,3,4,5;
+
+set constraints = cases;
+
+model item + item*step;
+
+estimate! method=quadrature, stderr=quick, nodes=80;
+
+show !estimates=latent >> MRC_SHOW.txt;
+itanal >> MRC_ITN.txt;
+
+export parameters >> MRC_PARMS.txt;
+show !tables=1:2:3:4:5:7,estimate=latent >> MRC_GIN.txt;
+
+reset;

@@ -1,0 +1,22 @@
+         1  -1.97017   /* item Twitter.01_MC */
+         2  -0.36068   /* item Twitter.02_MC.Pre18 */
+         3   1.49157   /* item Twitter.03a_MConly */
+         4   0.26115   /* item Discussion.01_MCPre18 */
+         5   0.23466   /* item Cats.02a_MC */
+         6   0.25901   /* item Cats.02b_MC */
+         7   0.72548   /* item Cats.02c_MC */
+         8  -0.59317   /* item MPG.04_MC.Pre18 */
+         9   0.03506   /* item Cats.02abc_MC */
+        10   1.01440   /* item Twitter.02_MC.Pre18 category 1 */
+        11   0.37924   /* item Discussion.01_MCPre18 category 1 */
+        12  -0.97844   /* item Cats.02a_MC category 1 */
+        13  -1.76270   /* item Cats.02a_MC category 2 */
+        14   3.53837   /* item Cats.02a_MC category 3 */
+        15   1.79479   /* item Cats.02b_MC category 1 */
+        16  -3.48778   /* item Cats.02b_MC category 2 */
+        17  -1.10949   /* item Cats.02b_MC category 3 */
+        18  -2.08747   /* item Cats.02c_MC category 1 */
+        19   0.71164   /* item Cats.02c_MC category 2 */
+        20  -0.97709   /* item MPG.04_MC.Pre18 category 1 */
+        21   1.57164   /* item MPG.04_MC.Pre18 category 2 */
+        22  -0.68427   /* item Cats.02abc_MC category 1 */

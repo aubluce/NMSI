@@ -1,0 +1,172 @@
+---
+title: "MRC Pretest Fall 20 Calibration"
+author: 
+date: "2/25/2021"
+output: html_document
+toc: true
+toc_float: true
+---
+
+### 1. MRC (meta representational competence) Construct Map
+<a href="https://docs.google.com/presentation/d/1NjSoUVslENGustXvAMzPBNxeMjYsbh6QRWoLzQygG74/edit#slide=id.gc115133d65_0_9" target = "_blank">Link </a> to construct map
+
+### 2. Items & Scoring Guides
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/56/scoring_guides/426/score_assignments" target ="_blank"> AirQuality1_MC 
+</a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/58/scoring_guides/685/score_assignments" target = "_blank">Birthday1_MCOE  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/60/scoring_guides/379/score_assignments" target = "_blank">Invent7_MC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/60/scoring_guides/506/score_assignments" target = "_blank">Invent8.9_MCsortOE  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/56/scoring_guides/391/score_assignments" target = "_blank">Swimming1_MC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/56/scoring_guides/392/score_assignments" target = "_blank">Swimming2a_MC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/56/scoring_guides/408/score_assignments" target = "_blank">Titanic1a_MC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/56/scoring_guides/407/score_assignments" target = "_blank">Titanic1b_MC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/59/scoring_guides/359/score_assignments" target = "_blank">GPA1_MC  </a>
+
+
+##### Response choice distributions
+* See <a href="https://cr4cradmin.bear-apps.com/answers_reports?scheduled_activities=36" target = "_blank">answers report.  </a> 
+
+```{r setup, include=FALSE}
+require(WrightMap)
+require(tidyverse)
+require(RColorBrewer)
+require(knitr)
+require(kableExtra)
+
+knitr::opts_chunk$set(echo = TRUE)
+
+
+#Import ConQuest data
+MRC <- CQmodel(p.est = "data/MRC_WLE.txt", show = "data/MRC_SHOW.txt")
+
+#full item names
+i.names<-MRC$RMP$item$item
+i.names[1,] <- "Swim1_MC"
+i.names[2,] <- "Swim2_MC"
+i.names[3,] <- "Titanic1b_MC"
+i.names[4,] <- "Titanic1a_MC"
+i.names[5,] <- "Birthday1_MC"
+i.names[6,] <- "GPA1_MC"
+i.names[7,] <- "AirQuality1_MC"
+i.names[8,] <- "Invent7_MC"
+i.names[9,] <- "Invent89_MCsortOE" 
+itemnames <- sort(i.names)
+
+#thetas
+MRC_est<-MRC$p.est$`est (d1)`
+
+#move thresholds for items that skipped levels (by design)
+MRC_thresh <- make.thresholds(MRC) %>% 
+  as.data.frame()
+
+# mannually adjusting thresholds for skipped levels etc.
+
+# Swim1 - L1 --> L3
+MRC_thresh[1, 3] <- MRC_thresh[1, 1]
+MRC_thresh[1, 1] <- NA
+
+# Swim2 - L1 --> L3
+MRC_thresh[2, 3] <- MRC_thresh[2, 1]
+MRC_thresh[2, 1] <- NA
+
+# get item rownames as the first column
+MRC_thresh <- MRC_thresh %>% 
+  rownames_to_column(., "item")
+
+MRC_thresh <- MRC_thresh %>% arrange(item)
+
+# get the right item names as set above
+MRC_thresh$item <- itemnames
+
+MRC_thresh <- MRC_thresh %>% arrange(item) 
+View(MRC_thresh)
+
+# add col names for MRC_thresh df
+colnames(MRC_thresh) <- c("item", "L1", "L2 ", "L3", "L4", "L5")
+
+#get rid of item col for WrightMap 1
+thresh4wm1 <- MRC_thresh %>% select(-item)
+
+
+# transposing item_thresh for WM2
+library(tidyr)
+#transposing item_thresh to tt for Wright map #2 w/thresholds on x-axis   
+tt <- MRC_thresh %>%
+  gather(var, value, -item) %>% 
+  spread(item, value) 
+dim(tt) # 5 x 10
+
+# drop the first column
+tt <- tt[(1:5), (2:10)]
+
+# x-axis labels for Wright map #2
+itemnames2 <- c("L0 vs.L1", "L1 vs.L2", "L2 vs.L3", "L3 vs.L4", "L4 vs.L5")
+#colors for Wright map #2
+itemcolors <- c("#D7191C", "#2B83BA", "forestgreen", "blueviolet", "orange2")
+
+#color code categories
+ncat <- ncol(thresh4wm1)
+nitems <- nrow(thresh4wm1)
+itemlevelcolors <- matrix(rep( RColorBrewer::brewer.pal(ncat, "Set1"), nitems), byrow=TRUE, ncol=ncat)
+
+```
+
+### 3. Wright Maps
+
+```{r plots, echo=FALSE, results = FALSE, fig.keep = 'all', message = FALSE, warning = FALSE, fig.align = "center"}
+
+#Wright map #1 (items on x-axis)
+wrightMap(MRC_est, thresh4wm1,
+          label.items = itemnames, 
+          label.items.srt = 65, 
+          thr.sym.col.fg = itemlevelcolors, 
+          thr.sym.col.bg = itemlevelcolors,
+          axis.items="")
+
+#mean(MRC$p.est$`est (d1)`)
+#sd(MRC$p.est$`est (d1)`)
+
+#Wright map #2 (thresh on x-axis)
+wrightMap(MRC_est, tt,
+          label.items = itemnames2,
+          main.title   = "Wright Map: MRC (by thresholds)",
+          thr.sym.col.fg = itemcolors,
+          thr.sym.col.bg = itemcolors,
+          axis.items = "Threshold")
+
+```
+
+```{r calib.results, echo=FALSE, results = FALSE}
+n.cases <- length(MRC_est)
+n.items <- length(i.names)
+eap.rel <- MRC$rel.coef[[3]]
+min.Wfit <- min(MRC$RMP$item$W.fit)
+max.Wfit <- max(MRC$RMP$item$W.fit)
+```
+#####   Calibration stats
+
+*  `r n.cases` cases (the overall DDM sample is 2,265. Of which, 422 are AP Stats students. 28 students excluded due to answering less than 20% of items; 3 more dropped for unknown reason.)
+*  `r n.items` scorable "units"
+*  EAP/PV Reliability: `r eap.rel`
+*  Weighted MNSQ range: `r min.Wfit` - `r max.Wfit`
+
+
+#####   Observations
+
+* Swim2_MC: The most difficult item. Frequency on the y-axis might be an appealing distractor. Better to be labeled as "number of respondents"?
+* Swim1_MC: Very easy as only two options are plausible.
+* Invent7's L3 appears to be more like Level 4.
+* AirQuality and GPA are parallel items but L2 and L3 locations are somewhat different. 
+* Birthday & Invent89 have a nice spread among the thresholds, while Titanic1b's thresholds are all squished. 
+
+### 4. Threshold Difficulty
+```{r tables, echo=FALSE, message = FALSE, warning = FALSE}
+
+knitr::kable(MRC_thresh, format = "html", digits = 2) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
+                full_width = TRUE, font_size = 12)
+
+```
+
+### 5. Item Analysis
+* <a href="https://drive.google.com/file/d/1gaKwS-sWlXFbEKZlkMs9fg9ZuFWGvADp/view?usp=sharing" target = "_blank">Link to Item Analysis </a> (ConQuest output)   
