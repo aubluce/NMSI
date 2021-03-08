@@ -19,7 +19,7 @@ When you click the **Knit** button a document will be generated that includes bo
 library(TAM)
 library(dplyr)
 library(WrightMap)
-#setwd("C:/Users/condo/PycharmProjects/NMSI_stat")
+setwd("C:/Users/condo/PycharmProjects/NMSI_stat")
 
 # change file depending on the construct
 ##############################################################################
@@ -47,20 +47,19 @@ pers_abil <- mod1$person$EAP
 
 #Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of #the R code that generated the plot.
 ```
-
-```{r cleaning, echo=FALSE}
+```{r}
 
 #################################################################################
 # UMV
-# item_thresh['CuppaJoe.04_MC', 1] <- NA
-# item_thresh['GuineaPig.01_MC..Pre18.', 1] <- NA
-# item_thresh['Inventions.03ab_MCMC', 1] <- NA
-# item_thresh['Inventions.04a_MConly', 1] <- NA
-# item_thresh['Inventions.01_MC..Pre20.', 1] <- NA
-# item_thresh['GuineaPig.02_MC..Pre.18.', 1] <- NA
-# item_thresh['CuppaJoe.01_OE', 1] <- NA
-# item_thresh['Painting.02_OE', 1] <- NA
-# item_thresh['PopSongs.01_MC..pre20.', 2] <- NA
+item_thresh['CuppaJoe.04_MC', 1] <- NA
+item_thresh['GuineaPig.01_MC..Pre18.', 1] <- NA
+item_thresh['Inventions.03ab_MCMC', 1] <- NA
+item_thresh['Inventions.04a_MConly', 1] <- NA
+item_thresh['Inventions.01_MC..Pre20.', 1] <- NA
+item_thresh['GuineaPig.02_MC..Pre.18.', 1] <- NA
+item_thresh['CuppaJoe.01_OE', 1] <- NA
+item_thresh['Painting.02_OE', 1] <- NA
+item_thresh['PopSongs.01_MC..pre20.', 2] <- NA
 ###################################################################################
 # LDC
 item_thresh['Twitter.01_MC', 2] <- NA
@@ -74,29 +73,6 @@ item_thresh['MPG.04_MC..Pre18.', 3] <- NA
 item_thresh['Paternity.03_MC..Pre18.', 2] <- NA
 item_thresh['BirthRates.01_MC..Pre.18.', 2] <- NA
 
-# make df and make rownames as the first column
-require(dplyr)
-item_thresh <- as.data.frame(item_thresh) %>% 
-  tibble::rownames_to_column(item_thresh, "item")
-
-# add col names 
-colnames(item_thresh) <- c("item", "L1", "L2 ", "L3", "L4")
-
-# transposing item_thresh for WM2
-library(tidyr)
-#transposing item_thresh to tt for Wright map #2 w/thresholds on x-axis   
-tt <- item_thresh %>%
-  gather(var, value, -item) %>% 
-  spread(item, value) 
-# dim(tt) # 4 x 14
-
-# drop the first column
-tt <- tt[(1:4), (2:14)]
-
-# x-axis labels for Wright map #2
-itemnames2 <- c("L0 vs.L1", "L1 vs.L2", "L2 vs.L3", "L3 vs.L4")
-#colors for Wright map #2
-itemcolors <- c("#D7191C", "#2B83BA", "forestgreen", "blueviolet")
 
 ```
 
@@ -109,21 +85,7 @@ I <- ncol(mod1$resp)
 itemlevelcolors <- matrix(rep( RColorBrewer::brewer.pal(ncat, "Set1"), I),
                            byrow=TRUE, ncol=ncat)
 
-wrightMap(pers_abil, item_thresh,
-          main.title   = "Wright Map: LDC (by = items)",
-          thr.sym.col.fg=itemlevelcolors,
-          thr.sym.col.bg=itemlevelcolors,
-          label.items.srt=65,
-          axis.items = "")
-
-#Wright map #2 (thresh on x-axis)
-wrightMap(pers_abil, tt,
-          label.items = itemnames2,
-          main.title   = "Wright Map: LDC (by thresholds)",
-          thr.sym.col.fg = itemcolors,
-          thr.sym.col.bg = itemcolors,
-          axis.items = "Threshold")
-
-```
+wrightMap(pers_abil, item_thresh, thr.sym.col.fg=itemlevelcolors,
+          thr.sym.col.bg=itemlevelcolors,label.items.srt=65)
 
 
