@@ -1,0 +1,133 @@
+---
+title: "DDM_Pre20_UMV"
+author: "Aubrey Condor"
+date: "3/4/2021"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+### 1. UMV (understanding measures of variability) Construct Map
+<a href="https://cr4cradmin.bear-apps.com/constructs/public/HxpdvrHpo2zUj65hjNZXyJuheExFSY" target = "_blank">Link </a> to construct map
+
+### 2. Items & Scoring Guides
+* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/AJKwoSsbWJBhVKPwwLg9hGQWgf65U2" target ="_blank"> CuppaJoe.04_MC </a>
+* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/YWkAtnwQM7OcCF8l4IRhX1qoME539g" target = "_blank">Inventions.04a_MConly  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/PHKBjKc5CJBtPJ1AvTELIaJgWqVKTT" target = "_blank">Inventions.03ab_MCMC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/farxoPV1WDRsHmybnmOvKLn419noGw" target = "_blank">GuineaPig.01_MC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/k8AALCWT3VWtA1J99oqhfkvOIn6t4C" target = "_blank">GuineaPig.03_MC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/SYBBDTg5AwqNZbbtF3anDA5Xjvjp7c" target = "_blank">GuineaPig.02_MC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/YYVg87Kjz54mnJHea5jPY872MX68pl" target = "_blank">CuppaJoe.01_OE  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/mJ3YclywhzWzuzwQMxRVL6Mmo9PAYV" target = "_blank">DogDiet.02_MC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/4iqcjSHmUdaWa5yWVmQ8pDwfERQdJG" target = "_blank">DogDiet.03_OE  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/RLJP4Y6hO72MAfhYb91AdGA3LQS5UH" target = "_blank">Inventions.01_MC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/oKLQNB287yJLZ3pRAOoKPSySAc7QK2" target = "_blank">PopSongs.01_MC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/fxsegyrwwhlmKuy7QEDdY7CBJ33jJM" target = "_blank">PopSongs.01_MCOE  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/5u7fKqr9iksqA4FpON3HlueOVsLRQJ" target = "_blank">MMpacket.01ab_OE  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/juP7IVJnOooBS6Ij6qZK6MVicGlpAD" target = "_blank">MMpacket.05  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/WdBVXbKRbnP6rIq2wG2eYvWJaxugJ4" target = "_blank">MMpacket.02ab_NU  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/Z5qxNBXMCyS6hGD3eA7JomNeUenWrc" target = "_blank">MMpacket.03ab_NU  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/ANRqfxKdaNBcLC9RLvMW1621JaxlIW" target = "_blank">MMpacket.04ab_NU  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/8udfxCj6Kmr9Tjd1HVFk9kxXPHP6H8" target = "_blank">CuppaJoe.03_OE  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/KhXIDs9be4s5tQh1zRO39ajvqPCzG1" target = "_blank">Painting.02_OE  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/iHUxQhsS82uZjjO3iCf1FAVSBWLLyP" target = "_blank">Painting.01_OE  </a>
+
+
+```{r setup, include=FALSE}
+library(TAM)
+library(dplyr)
+library(WrightMap)
+setwd("C:/Users/condo/PycharmProjects/NMSI_stat")
+
+# change file depending on the construct
+##############################################################################
+raw_resp <- read.csv("R_UMV.csv")
+##############################################################################
+
+resp <- raw_resp[!!rowSums(!is.na(raw_resp)),]
+resp <- lapply(resp, as.numeric)
+resp <- as.data.frame(resp)
+
+mod1 <- tam(resp)
+item_param <- mod1$xsi$xsi #item parameters
+item_thresh <- tam.threshold(mod1) #thurst thresholds
+summary(mod1) # summary of the model
+
+pers_abil <- mod1$person$EAP
+
+item_thresh['CuppaJoe.04_MC', 1] <- NA
+item_thresh['GuineaPig.01_MC', 1] <- NA
+item_thresh['Inventions.03ab_MCMC', 1] <- NA
+item_thresh['Inventions.04a_MConly', 1] <- NA
+item_thresh['Inventions.01_MC', 1] <- NA
+item_thresh['MMpacket.01ab_OE', 1] <- NA
+item_thresh['GuineaPig.02_MC', 1] <- NA
+item_thresh['PopSongs.01_MC', 2] <- NA
+
+#View(LDC_thresh)
+# add col names for LDC_thresh df
+#colnames(item_thresh) <- c("item", "L1", "L2 ", "L3", "L4")
+#get rid of item col for WrightMap 1
+#thresh4wm1 <- item_thresh %>% select(-item)
+# transposing item_thresh for WM2
+library(tidyr)
+#transposing item_thresh to tt for Wright map #2 w/thresholds on x-axis   
+#tt <- item_thresh %>%
+#  gather(var, value, -item) %>% 
+#  spread(item, value) 
+#dim(tt) # 4 x 14
+# drop the first column
+#tt <- tt[(1:4), (2:14)]
+# x-axis labels for Wright map #2
+#itemnames2 <- c("L0 vs.L1", "L1 vs.L2", "L2 vs.L3", "L3 vs.L4")
+#colors for Wright map #2
+#itemcolors <- c("#D7191C", "#2B83BA", "forestgreen", "blueviolet")
+#color code categories
+#ncat <- ncol(thresh4wm1)
+#nitems <- nrow(thresh4wm1)
+#itemlevelcolors <- matrix(rep( RColorBrewer::brewer.pal(ncat, "Set1"), nitems), byrow=TRUE, ncol=ncat)
+```
+
+### 3. Wright Maps
+
+```{r plots, echo=FALSE, results = FALSE, fig.keep = 'all', message = FALSE, warning = FALSE, fig.align = "center"}
+#Wright map #1 (items on x-axis)
+library(RColorBrewer)
+ncat <- 5
+I <- ncol(mod1$resp)
+itemlevelcolors <- matrix(rep( RColorBrewer::brewer.pal(ncat, "Set1"), I),
+                           byrow=TRUE, ncol=ncat)
+
+wrightMap(pers_abil, item_thresh, thr.sym.col.fg=itemlevelcolors,
+          thr.sym.col.bg=itemlevelcolors,label.items.srt=65)
+#mean(LDC$p.est$`est (d1)`)
+#sd(LDC$p.est$`est (d1)`)
+#Wright map #2 (thresh on x-axis)
+#wrightMap(item_est, tt,
+#          label.items = itemnames2,
+#          main.title   = "Wright Map: LDC (by thresholds)",
+#          thr.sym.col.fg = itemcolors,
+#          thr.sym.col.bg = itemcolors,
+#          axis.items = "Threshold")
+```
+
+```{r calib.results, echo=FALSE, results = FALSE}
+n.cases <- dim(resp)[1]
+n.items <- dim(item_thresh)[1]
+eap.rel <- mod1$EAP.rel
+#min.Wfit <- min(LDC$RMP$item$W.fit)
+#max.Wfit <- max(LDC$RMP$item$W.fit)
+```
+#####   Calibration stats
+
+*  `r n.cases` cases (the overall DDM sample is 2,265. Of which, 422 are AP Stats students. 28 students excluded due to answering less than 20% of items.)
+*  `r n.items` scorable "units"
+*  EAP/PV Reliability: `r eap.rel`
+
+
+
+#####   Observations
+
+
+
+
