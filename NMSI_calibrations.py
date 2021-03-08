@@ -1,8 +1,8 @@
 import pandas as pd
 
-UMV_df = pd.read_csv('DDM_UMV3.csv')
-MRC_df = pd.read_csv('DDM_MRC3.csv')
-FOI_df = pd.read_csv('DDM_FoI3.csv')
+UMV_df = pd.read_csv('DDM_UMV4.csv')
+MRC_df = pd.read_csv('DDM_MRC4.csv')
+FOI_df = pd.read_csv('DDM_FoI4.csv')
 LDC_df = pd.read_csv('DDM_LDC3.csv')
 
 
@@ -67,13 +67,32 @@ LDC_df2 = LDC_df[~LDC_df['Assignment Id'].isin(assign_id_list)]
 ###########################################################################################################################################
 # UMV specific processing
 R_UMV_df = UMV_df2.drop(columns={'Assignment Id', 'Activities', 'CuppaJoe.02_OE', 'MMpacket.04ab_OE', 'MMpacket.03ab_OE'})
-R_UMV_df = R_UMV_df.applymap(lambda x: str(x).replace('UMV', '').replace('E', '').replace('Q', '').replace('-', 'NA').replace('Blank', 'NA').replace('e', '').replace('NANANA', 'NA').replace('q', '').replace(r'^\s+$', 'NA'))
+R_UMV_df = R_UMV_df.applymap(lambda x: str(x).replace('UMV', '').replace('E', '').replace('Q', '').replace('-', 'NA').replace('Blank', 'NA').replace('e', '').replace('NANANA', 'NA').replace('q', '').replace(r'^\s+$', 'NA')).replace('nan', 'NA')
 R_UMV_df = R_UMV_df.fillna('NA')
 R_UMV_df.to_csv('R_UMV.csv', index=False)
 
 #############################################################################################################################################
-# LDC specific processing DrugTrial.6b_OE
+# LDC specific processing
 R_LDC_df = LDC_df2.drop(columns={'Assignment Id', 'Activities', 'DrugTrial.6b_OE'})
 R_LDC_df = R_LDC_df.applymap(lambda x: str(x).replace('LDC', '').replace('.No', '').replace('-', 'NA').replace('Blank', 'NA').replace(r'^\s+$', 'NA'))
 R_LDC_df = R_LDC_df.fillna('NA')
 R_LDC_df.to_csv('R_LDC.csv', index=False)
+
+############################################################################################################################################
+# MRC specific processing
+R_MRC_df = MRC_df2.drop(columns={'Assignment Id', 'Activities', 'Birthday.01_MConly', 'Swimming.02b_MC',
+                                 'Swimming.02cd_MC_S', 'GPA.02ab_MConly', 'Inventions.08_MC'})
+R_MRC_df = R_MRC_df.applymap(lambda x: str(x).replace('MRC', '').replace('.', '').replace('.No', '').replace('-', 'NA').replace('Blank', 'NA').replace(r'^\s+$', 'NA')).replace('2A', '2').replace('2B', '2').replace('4B', '4').replace('nan', 'NA')
+R_MRC_df = R_MRC_df.fillna('NA')
+R_MRC_df.to_csv('R_MRC1.csv', index=False)
+
+#############################################################################################################################################
+# FOI specific processing
+R_FOI_df = FOI_df2.drop(columns={'Assignment Id', 'Activities', 'DrugTrial.1a.2_MC', 'DrugTrial.1c.2_MC', 'DrugTrial.1a.3_MC', 'DrugTrial.1c.3_MC',	'DrugTrial.1b.2_MC', 'DrugTrial.1d.2_MC', \
+'DrugTrial.1b.3_MC', 'DrugTrial.1d.3_MC',	'DrugTrial.1a.4_MC', 'DrugTrial.1d.4_MC', 'DrugTrial.1a.5_MC', 'DrugTrial.1d.5_MC',	\
+'DrugTrial.1b.4_MC', 'DrugTrial.1c.4_MC', 'DrugTrial.1b.5_MC', 'DrugTrial.1c.5_MC'})
+R_FOI_df = R_FOI_df.applymap(lambda x: str(x).replace('FoI', '').replace('.No', '').replace('-', 'NA').replace('Blank', 'NA').replace(r'^\s+$', 'NA').replace('nan', 'NA').replace(' No', '').replace('P', '').replace('S', '').replace('No', '').replace('Level 0', '0'))
+R_FOI_df = R_FOI_df.fillna('NA')
+R_FOI_df.to_csv('R_FOI.csv', index=False)
+
+
