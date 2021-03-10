@@ -1,0 +1,28 @@
+         1   0.59617   /* item Pvalue.01_MC */
+         2  -0.24897   /* item Helpline.01_MC */
+         3  -0.70900   /* item Cats.01_MC */
+         4   0.08464   /* item Literature.02_OE */
+         5   0.92459   /* item Literature.03_OE */
+         6   0.43736   /* item GuineaPig.04_MC */
+         7   0.47102   /* item MPG.01_MC */
+         8   0.55514   /* item MPG.02_MC */
+         9   0.45459   /* item WebClicks.01_MC */
+        10  -0.05675   /* item Chocolate.04_OE */
+        11   0.89972   /* item Chocolate.05_OE */
+        12   0.51837   /* item Chocolate.01b03_MCMC */
+        13   0.13356   /* item Pvalue.01_MC category 1 */
+        14   0.84355   /* item Helpline.01_MC category 1 */
+        15  -1.07871   /* item Cats.01_MC category 1 */
+        16   0.99480   /* item Cats.01_MC category 2 */
+        17   1.62866   /* item Literature.03_OE category 1 */
+        18  -0.85441   /* item Literature.03_OE category 2 */
+        19  -0.06039   /* item GuineaPig.04_MC category 1 */
+        20   1.60700   /* item GuineaPig.04_MC category 2 */
+        21  -2.25757   /* item MPG.01_MC category 1 */
+        22   2.62889   /* item MPG.01_MC category 2 */
+        23   0.16549   /* item MPG.02_MC category 1 */
+        24   0.23512   /* item WebClicks.01_MC category 1 */
+        25   0.23738   /* item Chocolate.04_OE category 1 */
+        26   0.87471   /* item Chocolate.05_OE category 1 */
+        27  -1.23365   /* item Chocolate.05_OE category 2 */
+        28   0.15698   /* item Chocolate.01b03_MCMC category 1 */

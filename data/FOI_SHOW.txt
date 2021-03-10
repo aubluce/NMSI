@@ -1,0 +1,227 @@
+================================================================================
+DDM - FOI                                                  Wed Mar 10 09:25 2021
+SUMMARY OF THE ESTIMATION
+===========================================================Build: Feb 28 2021===
+Estimation method was: Bock-Aitkin Quadrature with 80 nodes and node range (-6.000,6.000)
+No node filtering not applicable
+Xsi increment max:    1.00000
+FacOldXsi:    0.00000
+Assumed population distribution was: Gaussian
+Location constraint was: CASES
+Scale constraint was: Not applicable
+The Data File: DDM_FOI_scores.txt
+The format:  responses 1-12
+No case weights
+The regression model:
+Grouping Variables:
+The item model: item+item*step
+Slopes are fixed
+Cases in file: 394  Cases in estimation: 393
+Final Deviance:                                4308.27228
+Akaike Information Criterion (AIC):            4366.27228
+Akaike Information Criterion Corrected (AICc): 4362.4148
+Bayesian Information Criterion (BIC):          4481.51276
+Total number of estimated parameters: 29
+The number of iterations: 123
+Termination criteria:  Max iterations=1000,Parameter Change= 0.00010
+                       Deviance Change= 0.00010
+Iterations terminated because the convergence criteria were reached
+Random number generation seed:    1.00000
+Number of nodes used when drawing PVs: 2000
+Number of nodes used when computing fit: 200
+Number of plausible values to draw: 5
+Maximum number of iterations without a deviance improvement: 100
+Maximum number of Newton steps for each parameter in M-step: 10
+Value for obtaining finite MLEs for zero/perfects:    0.30000
+
+================================================================================
+================================================================================
+DDM - FOI                                                  Wed Mar 10 09:25 2021
+TABLES OF RESPONSE MODEL PARAMETER ESTIMATES
+===========================================================Build: Feb 28 2021===
+TERM 1: item
+--------------------------------------------------------------------------------------------------------------
+TERM 1: item
+
+   VARIABLES                               UNWEIGHTED FIT             WEIGHTED FIT
+---------------                        -----------------------   -----------------------
+     item           ESTIMATE  ERROR^   MNSQ       CI        T    MNSQ       CI        T
+--------------------------------------------------------------------------------------------------------------
+ 1   Pvalue.01_M..    0.596   0.067    0.99 ( 0.86, 1.14) -0.1   1.00 ( 0.89, 1.11) -0.1
+ 2   Helpline.01..   -0.249   0.059    0.99 ( 0.86, 1.14) -0.2   0.99 ( 0.93, 1.07) -0.3
+ 3   Cats.01_MC      -0.709   0.084    1.00 ( 0.78, 1.22)  0.0   1.00 ( 0.85, 1.15)  0.0
+ 4   Literature...    0.085   0.491    1.08 ( 0.33, 1.67)  0.3   1.07 ( 0.85, 1.15)  0.9
+ 5   Literature...    0.925   0.301    1.11 ( 0.31, 1.69)  0.4   1.10 ( 0.00, 2.07)  0.3
+ 6   GuineaPig.0..    0.437   0.104    1.05 ( 0.71, 1.29)  0.4   1.05 ( 0.72, 1.28)  0.4
+ 7   MPG.01_MC        0.471   0.339    0.95 ( 0.48, 1.52) -0.1   1.00 ( 0.07, 1.93)  0.2
+ 8   MPG.02_MC        0.555   0.143    1.01 ( 0.70, 1.30)  0.1   1.00 ( 0.78, 1.22) -0.0
+ 9   WebClicks.0..    0.455   0.134    0.99 ( 0.71, 1.29) -0.0   0.98 ( 0.80, 1.20) -0.1
+ 10  Chocolate.0..   -0.057   0.132    1.02 ( 0.70, 1.30)  0.1   1.01 ( 0.84, 1.16)  0.2
+ 11  Chocolate.0..    0.900   0.258    0.90 ( 0.35, 1.65) -0.2   0.94 ( 0.34, 1.66) -0.1
+ 12  Chocolate.0..    0.518   0.337    0.98 ( 0.28, 1.72)  0.1   0.99 ( 0.49, 1.51)  0.0
+--------------------------------------------------------------------------------
+An asterisk next to a parameter estimate indicates that it is constrained
+Separation Reliability= 0.741
+Chi-square test of parameter equality=    237.51, df=12, Sig Level=0.000
+^ Quick standard errors have been used
+Term is a fixed effect
+
+TERM 2: item*step
+----------------------------------------------------------------------------------------------------------------------------
+TERM 2: item*step
+
+          VARIABLES                                       UNWEIGHTED FIT             WEIGHTED FIT
+------------------------------                        -----------------------   -----------------------
+     item         category         ESTIMATE  ERROR^   MNSQ       CI        T    MNSQ       CI        T
+----------------------------------------------------------------------------------------------------------------------------
+ 1   Pvalue.01_M..    0                               1.00 ( 0.86, 1.14) -0.0   1.00 ( 0.96, 1.04) -0.1
+ 1   Pvalue.01_M..    1              0.134   0.115    1.00 ( 0.86, 1.14) -0.0   1.00 ( 0.89, 1.11)  0.0
+ 1   Pvalue.01_M..    2             -0.134*           0.98 ( 0.86, 1.14) -0.2   1.00 ( 0.84, 1.16) -0.0
+ 2   Helpline.01..    0                               0.99 ( 0.86, 1.14) -0.1   0.99 ( 0.92, 1.08) -0.2
+ 2   Helpline.01..    1              0.844   0.136    1.00 ( 0.86, 1.14) -0.0   1.00 ( 0.82, 1.18)  0.0
+ 2   Helpline.01..    2             -0.844*           0.99 ( 0.86, 1.14) -0.2   0.99 ( 0.95, 1.05) -0.6
+ 3   Cats.01_MC       0                               1.21 ( 0.78, 1.22)  1.8   1.02 ( 0.42, 1.58)  0.2
+ 3   Cats.01_MC       1             -1.079   0.160    0.96 ( 0.78, 1.22) -0.3   0.97 ( 0.86, 1.14) -0.4
+ 3   Cats.01_MC       2              0.995   0.191    1.00 ( 0.78, 1.22)  0.0   1.00 ( 0.79, 1.21)  0.0
+ 3   Cats.01_MC       3              0.084*           0.99 ( 0.78, 1.22) -0.1   0.99 ( 0.92, 1.08) -0.2
+ 5   Literature...    0                               1.05 ( 0.31, 1.69)  0.3   1.08 ( 0.24, 1.76)  0.3
+ 5   Literature...    1              1.629   0.761    0.98 ( 0.31, 1.69)  0.1   0.99 ( 0.00, 2.76)  0.3
+ 5   Literature...    2             -0.854   1.040    0.98 ( 0.31, 1.69)  0.1   0.99 ( 0.00, 2.72)  0.3
+ 5   Literature...    3             -0.774*           1.20 ( 0.31, 1.69)  0.7   1.07 ( 0.00, 2.66)  0.3
+ 6   GuineaPig.0..    0                               1.05 ( 0.71, 1.29)  0.4   1.04 ( 0.91, 1.09)  0.9
+ 6   GuineaPig.0..    1             -0.060   0.219    1.01 ( 0.71, 1.29)  0.1   1.01 ( 0.84, 1.16)  0.1
+ 6   GuineaPig.0..    2              1.607   0.513    1.16 ( 0.71, 1.29)  1.0   1.02 ( 0.09, 1.91)  0.2
+ 6   GuineaPig.0..    3             -1.547*           1.02 ( 0.71, 1.29)  0.2   1.01 ( 0.62, 1.38)  0.1
+ 7   MPG.01_MC        0                               1.11 ( 0.48, 1.52)  0.5   1.03 ( 0.24, 1.76)  0.2
+ 7   MPG.01_MC        1             -2.258   0.494    1.00 ( 0.48, 1.52)  0.1   1.00 ( 0.48, 1.52)  0.1
+ 7   MPG.01_MC        2              2.629   1.020    0.99 ( 0.48, 1.52)  0.0   0.99 ( 0.00, 2.83)  0.3
+ 7   MPG.01_MC        3             -0.371*           0.88 ( 0.48, 1.52) -0.4   0.97 ( 0.00, 2.80)  0.3
+ 8   MPG.02_MC        0                               0.98 ( 0.70, 1.30) -0.0   0.99 ( 0.91, 1.09) -0.3
+ 8   MPG.02_MC        1              0.165   0.249    0.98 ( 0.70, 1.30) -0.1   0.99 ( 0.77, 1.23) -0.0
+ 8   MPG.02_MC        2             -0.165*           1.03 ( 0.70, 1.30)  0.3   1.00 ( 0.67, 1.33)  0.1
+ 9   WebClicks.0..    0                               0.96 ( 0.71, 1.29) -0.2   0.96 ( 0.91, 1.09) -0.8
+ 9   WebClicks.0..    1              0.235   0.242    0.98 ( 0.71, 1.29) -0.1   0.99 ( 0.77, 1.23) -0.0
+ 9   WebClicks.0..    2             -0.235*           1.03 ( 0.71, 1.29)  0.3   1.02 ( 0.72, 1.28)  0.2
+ 10  Chocolate.0..    0                               1.01 ( 0.70, 1.30)  0.1   1.01 ( 0.84, 1.16)  0.1
+ 10  Chocolate.0..    1              0.237   0.245    1.00 ( 0.70, 1.30)  0.1   1.00 ( 0.78, 1.22)  0.0
+ 10  Chocolate.0..    2             -0.237*           1.02 ( 0.70, 1.30)  0.2   1.01 ( 0.87, 1.13)  0.2
+ 11  Chocolate.0..    0                               0.91 ( 0.35, 1.65) -0.2   0.93 ( 0.62, 1.38) -0.3
+ 11  Chocolate.0..    1              0.875   0.535    0.93 ( 0.35, 1.65) -0.1   0.98 ( 0.00, 2.14)  0.2
+ 11  Chocolate.0..    2             -1.234   0.643    1.01 ( 0.35, 1.65)  0.1   1.03 ( 0.19, 1.81)  0.2
+ 11  Chocolate.0..    3              0.359*           0.70 ( 0.35, 1.65) -0.9   0.95 ( 0.00, 2.75)  0.2
+ 12  Chocolate.0..    0                               1.00 ( 0.28, 1.72)  0.1   1.00 ( 0.79, 1.21) -0.1
+ 12  Chocolate.0..    1              0.157   0.585    1.02 ( 0.28, 1.72)  0.2   1.00 ( 0.47, 1.53)  0.1
+ 12  Chocolate.0..    2             -0.157*           0.95 ( 0.28, 1.72) -0.0   0.99 ( 0.26, 1.74)  0.1
+--------------------------------------------------------------------------------
+An asterisk next to a parameter estimate indicates that it is constrained
+^ Quick standard errors have been used
+================================================================================
+================================================================================
+DDM - FOI                                                  Wed Mar 10 09:25 2021
+TABLES OF POPULATION MODEL PARAMETER ESTIMATES
+===========================================================Build: Feb 28 2021===
+REGRESSION COEFFICIENTS
+
+
+
+Regression Variable
+
+CONSTANT                   0.000*
+-----------------------------------------------
+An asterisk next to a parameter estimate indicates that it is constrained
+===============================================
+UNCONDITIONAL COVARIANCE/CORRELATION MATRIX
+
+
+
+Dimension
+
+Dimension_1
+-------------------------------------------
+Variance                   0.092  ( 0.007)
+-------------------------------------------
+An asterisk next to a parameter estimate indicates that it is constrained
+
+===========================================
+
+RELIABILITY COEFFICIENTS
+------------------------
+
+Dimension: (Dimension_1)
+-----------------------
+ MLE Person separation RELIABILITY:  Unavailable
+ WLE Person separation RELIABILITY:  Unavailable
+ EAP/PV RELIABILITY:                  0.177
+------------------------
+================================================================================
+DDM - FOI                                                  Wed Mar 10 09:25 2021
+MAP OF LATENT DISTRIBUTIONS AND RESPONSE MODEL PARAMETER ESTIMATES
+===========================================================Build: Feb 28 2021===
+             Terms in the Model (excl Step terms)
+
+                               +item
+----------------------------------------------------
+                |                                  |
+                |                                  |
+                |                                  |
+                |                                  |
+                |                                  |
+   1            |                                  |
+                |                                  |
+                |5 11                              |
+                |                                  |
+                |                                  |
+                |                                  |
+                |                                  |
+               X|                                  |
+               X|                                  |
+               X|                                  |
+              XX|1                                 |
+              XX|8                                 |
+             XXX|12                                |
+             XXX|7 9                               |
+             XXX|6                                 |
+           XXXXX|                                  |
+            XXXX|                                  |
+         XXXXXXX|                                  |
+          XXXXXX|                                  |
+        XXXXXXXX|                                  |
+           XXXXX|                                  |
+      XXXXXXXXXX|                                  |
+       XXXXXXXXX|4                                 |
+        XXXXXXXX|                                  |
+      XXXXXXXXXX|                                  |
+   0  XXXXXXXXXX|                                  |
+      XXXXXXXXXX|10                                |
+        XXXXXXXX|                                  |
+       XXXXXXXXX|                                  |
+       XXXXXXXXX|                                  |
+          XXXXXX|                                  |
+       XXXXXXXXX|2                                 |
+           XXXXX|                                  |
+           XXXXX|                                  |
+            XXXX|                                  |
+             XXX|                                  |
+            XXXX|                                  |
+              XX|                                  |
+             XXX|                                  |
+               X|                                  |
+               X|                                  |
+                |                                  |
+               X|3                                 |
+               X|                                  |
+                |                                  |
+                |                                  |
+                |                                  |
+                |                                  |
+                |                                  |
+  -1            |                                  |
+                |                                  |
+                |                                  |
+                |                                  |
+                |                                  |
+                |                                  |
+====================================================
+Each 'X' represents 2.2 cases
+
+====================================================
