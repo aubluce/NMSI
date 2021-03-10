@@ -1,0 +1,52 @@
+         1  -1.35199   /* item CuppaJoe.04_MC */
+         2  -1.00767   /* item Inventions.04a_MConly */
+         3   1.21708   /* item Inventions.03ab_MCMC */
+         4  -0.16462   /* item GuineaPig.01_MC */
+         5  -0.32676   /* item GuineaPig.03_MC */
+         6  -0.16869   /* item GuineaPig.02_MC */
+         7   0.32965   /* item CuppaJoe.01_OE */
+         8  -0.71256   /* item DogDiet.02_MC */
+         9   0.56507   /* item DogDiet.03_OE */
+        10  -0.41909   /* item Inventions.01_MC */
+        11   0.31271   /* item PopSongs.01_MC */
+        12   0.07327   /* item PopSongs.01_MCOE */
+        13   1.29608   /* item MMpacket.01ab_OE */
+        14   0.04944   /* item MMpacket.05 */
+        15   0.07357   /* item MMpacket.02ab_NU */
+        16  -0.02914   /* item MMpacket.03ab_NU */
+        17  -0.36564   /* item MMpacket.04ab_NU */
+        18   0.45069   /* item CuppaJoe.03_OE */
+        19  -1.67227   /* item Painting.02_OE */
+        20  -0.26487   /* item Painting.01_OE */
+        21   0.86471   /* item CuppaJoe.04_MC category 1 */
+        22  -1.28441   /* item Inventions.03ab_MCMC category 1 */
+        23  -1.00314   /* item GuineaPig.01_MC category 1 */
+        24   2.19930   /* item GuineaPig.03_MC category 1 */
+        25  -1.15385   /* item GuineaPig.03_MC category 2 */
+        26   1.68417   /* item GuineaPig.02_MC category 1 */
+        27  -2.35035   /* item CuppaJoe.01_OE category 1 */
+        28  -1.20591   /* item CuppaJoe.01_OE category 2 */
+        29   1.35714   /* item DogDiet.02_MC category 1 */
+        30  -1.57928   /* item DogDiet.03_OE category 1 */
+        31  -0.81153   /* item DogDiet.03_OE category 2 */
+        32   0.18301   /* item DogDiet.03_OE category 3 */
+        33  -0.43832   /* item Inventions.01_MC category 1 */
+        34  -0.55183   /* item PopSongs.01_MC category 1 */
+        35  -1.58760   /* item PopSongs.01_MCOE category 1 */
+        36   1.95086   /* item PopSongs.01_MCOE category 2 */
+        37  -0.73494   /* item PopSongs.01_MCOE category 3 */
+        38  -1.65416   /* item MMpacket.01ab_OE category 1 */
+        39  -3.09380   /* item MMpacket.05 category 1 */
+        40  -0.75666   /* item MMpacket.05 category 2 */
+        41   2.81619   /* item MMpacket.05 category 3 */
+        42  -1.24525   /* item MMpacket.02ab_NU category 1 */
+        43   0.25378   /* item MMpacket.02ab_NU category 2 */
+        44  -1.15149   /* item MMpacket.03ab_NU category 1 */
+        45   1.01653   /* item MMpacket.03ab_NU category 2 */
+        46  -2.37623   /* item MMpacket.04ab_NU category 1 */
+        47  -0.03614   /* item MMpacket.04ab_NU category 2 */
+        48  -1.41442   /* item CuppaJoe.03_OE category 1 */
+        49  -0.85254   /* item CuppaJoe.03_OE category 2 */
+        50  -1.25701   /* item Painting.02_OE category 1 */
+        51  -0.54266   /* item Painting.01_OE category 1 */
+        52  -0.20641   /* item Painting.01_OE category 2 */
