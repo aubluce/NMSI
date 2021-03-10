@@ -1,0 +1,15 @@
+===> item
+
+1	Twitter.01_MC             
+2	Twitter.02_MC.Pre18              
+3	Twitter.03a_MConly            
+4	Discussion.01_MCPre18            
+5	Cats.02a_MC              
+6	Cats.02b_MC               
+7	Cats.02c_MC                 
+8	MPG.04_MC.Pre18                  
+9	Cats.02abc_MC              
+10	Twitter.03ab_MCMC                  
+11	Paternity.03_MC.Pre18                
+12	Paternity.01ab_MCMC     
+13	BirthRates.01_MC.Pre18

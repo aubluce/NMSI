@@ -1,0 +1,20 @@
+Title DDM - LDC;
+
+datafile DDM_LDC_scores.txt;
+format id 1-4 responses 5-16;
+labels << LDC_labels.txt;
+codes 0,1,2,3,4;
+
+set constraints = cases;
+
+model item + item*step;
+
+estimate! method=quadrature, stderr=quick, nodes=80;
+
+show !estimates=latent >> LDC_SHOW.txt;
+itanal >> LDC_ITN.txt;
+
+export parameters >> LDC_PARMS.txt;
+show !tables=1:2:3:4:5:7,estimate=latent >> LDC_GIN.txt;
+
+reset;
