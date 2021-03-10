@@ -1,0 +1,16 @@
+===> item
+
+1	Pvalue.01_MC             
+2	Helpline.01_MC              
+3	Cats.01_MC            
+4	Literature.02_OE            
+5	Literature.03_OE              
+6	GuineaPig.04_MC                             
+7	MPG.01_MC                  
+8	MPG.02_MC              
+9	WebClicks.01_MC                  
+10	Chocolate.04_OE                
+11	Chocolate.05_OE     
+12	Chocolate.01b03_MCMC
+
+

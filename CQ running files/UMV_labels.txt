@@ -1,0 +1,23 @@
+===> item
+
+1	CuppaJoe.04_MC             
+2	Inventions.04a_MConly              
+3	Inventions.03ab_MCMC            
+4	GuineaPig.01_MC            
+5	GuineaPig.03_MC              
+6	GuineaPig.02_MC               
+7	CuppaJoe.01_OE                 
+8	DogDiet.02_MC                  
+9	DogDiet.03_OE              
+10	Inventions.01_MC                  
+11	PopSongs.01_MC                
+12	PopSongs.01_MCOE     
+13	MMpacket.01ab_OE
+14	MMpacket.05
+15	MMpacket.02ab_NU
+16	MMpacket.03ab_NU
+17	MMpacket.04ab_NU
+18	CuppaJoe.03_OE
+19	Painting.02_OE
+20	Painting.01_OE
+

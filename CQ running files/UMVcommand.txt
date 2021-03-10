@@ -1,0 +1,24 @@
+Title DDM - UMV;
+
+datafile DDM_UMV_scores.txt;
+format responses 1-20;
+labels << UMV_labels.txt;
+codes 0,1,2,3,4;
+
+set constraints = cases;
+
+model item + item*step;
+
+estimate! method=quadrature, stderr=quick, nodes=80;
+
+show !estimates=latent >> UMV_SHOW.txt;
+itanal >> UMV_ITN.txt;
+
+show cases ! estimates=mle >> UMV_MLE.txt;
+show cases ! estimates=eap >> UMV_EAP.txt;
+show cases ! estimates=wle >> UMV_WLE.txt;
+
+export parameters >> UMV_PARMS.txt;
+show !tables=1:2:3:4:5:7,estimate=latent >> UMV_GIN.txt;
+
+reset;
