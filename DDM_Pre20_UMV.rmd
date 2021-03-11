@@ -11,9 +11,9 @@ toc_float: true
 <a href="https://cr4cradmin.bear-apps.com/constructs/public/HxpdvrHpo2zUj65hjNZXyJuheExFSY" target = "_blank">Link </a> to construct map
 
 ### 2. Items & Scoring Guides
-* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/YYVg87Kjz54mnJHea5jPY872MX68pl" target = "_blank">CuppaJoe.01_OE  </a>
-* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/8udfxCj6Kmr9Tjd1HVFk9kxXPHP6H8" target = "_blank">CuppaJoe.03_OE  </a>
-* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/AJKwoSsbWJBhVKPwwLg9hGQWgf65U2" target ="_blank"> CuppaJoe.04_MC </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/60/scoring_guides/505/score_assignments" target = "_blank">CuppaJoe.01_OE  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/60/scoring_guides/187/score_assignments" target = "_blank">CuppaJoe.03_OE  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/58/scoring_guides/175/score_assignments" target = "_blank">CuppaJoe.04_MC </a>
 * <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/81/scoring_guides/151/score_assignments" target = "_blank">DogDiet.02_MC  </a>
 * <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/83/scoring_guides/152/score_assignments" target = "_blank">DogDiet.03_OE  </a>
 * <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/57/scoring_guides/386/score_assignments" target = "_blank">GuineaPig.01_MC  </a>
@@ -22,15 +22,15 @@ toc_float: true
 * <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/59/scoring_guides/340/score_assignments" target = "_blank">Inventions.01_MC  </a>
 * <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/58/scoring_guides/373/score_assignments" target = "_blank">Inventions.03ab_MCMC  </a>
 * <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/58/scoring_guides/342/score_assignments" target = "_blank">Inventions.04a_MConly  </a>
-* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/5u7fKqr9iksqA4FpON3HlueOVsLRQJ" target = "_blank">MMpacket.01ab_OE  </a>
-* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/WdBVXbKRbnP6rIq2wG2eYvWJaxugJ4" target = "_blank">MMpacket.02ab_NU  </a>
-* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/Z5qxNBXMCyS6hGD3eA7JomNeUenWrc" target = "_blank">MMpacket.03ab_NU  </a>
-* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/ANRqfxKdaNBcLC9RLvMW1621JaxlIW" target = "_blank">MMpacket.04ab_NU  </a>
-* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/juP7IVJnOooBS6Ij6qZK6MVicGlpAD" target = "_blank">MMpacket.05  </a>
-* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/iHUxQhsS82uZjjO3iCf1FAVSBWLLyP" target = "_blank">Painting.01_OE  </a>
-* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/KhXIDs9be4s5tQh1zRO39ajvqPCzG1" target = "_blank">Painting.02_OE  </a>
-* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/oKLQNB287yJLZ3pRAOoKPSySAc7QK2" target = "_blank">PopSongs.01_MC  </a>
-* <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/fxsegyrwwhlmKuy7QEDdY7CBJ33jJM" target = "_blank">PopSongs.01_MCOE  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/80/scoring_guides/190/score_assignments" target = "_blank">MMpacket.01ab_OE  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/56/scoring_guides/440/score_assignments" target = "_blank">MMpacket.02ab_NU  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/56/scoring_guides/441/score_assignments" target = "_blank">MMpacket.03ab_NU  </a>
+* <a href="hhttps://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/56/scoring_guides/442/score_assignments" target = "_blank">MMpacket.04ab_NU  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/56/scoring_guides/194/score_assignments" target = "_blank">MMpacket.05  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/57/scoring_guides/684/score_assignments" target = "_blank">Painting.01_OE  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/57/scoring_guides/277/score_assignments" target = "_blank">Painting.02_OE  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/60/scoring_guides/360/score_assignments" target = "_blank">PopSongs.01_MC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/59/scoring_guides/361/score_assignments" target = "_blank">PopSongs.01_MCOE  </a>
 
 ##### Response choice distributions
 * See <a href="https://cr4cradmin.bear-apps.com/answers_reports?scheduled_activities=36" target = "_blank">answers report.  </a> 
