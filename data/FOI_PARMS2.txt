@@ -1,0 +1,61 @@
+         1   0.55326   /* item Pvalue.01_MC */
+         2   0.45216   /* item Helpline.01_MC */
+         3   0.59390   /* item Cats.01_MC */
+         4  -0.24792   /* item Literature.02_OE */
+         5  -0.70693   /* item Literature.03_OE */
+         6   0.43341   /* item DrugTrial.1a.2_MC */
+         7  -0.05627   /* item DrugTrial.1c.2_MC */
+         8  -0.71945   /* item DrugTrial.0a.2_MC */
+         9   0.86741   /* item DrugTrial.0c.2_MC */
+        10   0.35746   /* item DrugTrial.0b.1_MC */
+        11   0.45224   /* item DrugTrial.0d.1_MC */
+        12  -0.68325   /* item DrugTrial.1b.2_MC */
+        13  -0.74806   /* item DrugTrial.1d.2_MC */
+        14  -0.33915   /* item DrugTrial.1a.4_MC */
+        15  -1.38658   /* item DrugTrial.1d.4_MC */
+        16   0.17185   /* item DrugTrial.1a.5_MC */
+        17  -0.33612   /* item DrugTrial.1d.5_MC */
+        18   0.25936   /* item DrugTrial.0b.4_MC */
+        19   0.44487   /* item DrugTrial.0c.4_MC */
+        20  -0.18071   /* item DrugTrial.0b.5_MC */
+        21  -0.55779   /* item DrugTrial.1c.5_MC */
+        22   0.49985   /* item GuineaPig.04_MC */
+        23   0.12982   /* item MPG.01_MC */
+        24   0.95153   /* item MPG.02_MC */
+        25  -0.28154   /* item WebClicks.01_MC */
+        26   1.18047   /* item Chocolate.04_OE */
+        27  -0.04040   /* item Chocolate.05_OE */
+        28   0.34805   /* item Chocolate.01b03_MCMC */
+        29   0.16848   /* item Pvalue.01_MC category 1 */
+        30   0.23777   /* item Helpline.01_MC category 1 */
+        31   0.13648   /* item Cats.01_MC category 1 */
+        32   0.84647   /* item Literature.02_OE category 1 */
+        33  -1.07316   /* item Literature.03_OE category 1 */
+        34   0.99485   /* item Literature.03_OE category 2 */
+        35  -0.05544   /* item DrugTrial.1a.2_MC category 1 */
+        36   1.60699   /* item DrugTrial.1a.2_MC category 2 */
+        37   0.24033   /* item DrugTrial.1c.2_MC category 1 */
+        38  -0.07111   /* item DrugTrial.0c.2_MC category 1 */
+        39   0.55159   /* item DrugTrial.0c.2_MC category 2 */
+        40   0.42346   /* item DrugTrial.0b.1_MC category 1 */
+        41  -1.37208   /* item DrugTrial.0d.1_MC category 1 */
+        42   0.02592   /* item DrugTrial.1b.2_MC category 1 */
+        43   0.14470   /* item DrugTrial.1b.2_MC category 2 */
+        44  -1.17179   /* item DrugTrial.1d.2_MC category 1 */
+        45   1.09838   /* item DrugTrial.1d.2_MC category 2 */
+        46  -0.60750   /* item DrugTrial.1a.4_MC category 1 */
+        47  -0.18128   /* item DrugTrial.1a.5_MC category 1 */
+        48  -0.39451   /* item DrugTrial.1d.5_MC category 1 */
+        49   0.01374   /* item DrugTrial.0b.4_MC category 1 */
+        50   2.46758   /* item DrugTrial.0b.5_MC category 1 */
+        51  -1.64717   /* item DrugTrial.0b.5_MC category 2 */
+        52   0.50159   /* item DrugTrial.1c.5_MC category 1 */
+        53  -0.27257   /* item GuineaPig.04_MC category 1 */
+        54  -1.28081   /* item MPG.01_MC category 1 */
+        55  -0.52829   /* item MPG.02_MC category 1 */
+        56  -1.08203   /* item WebClicks.01_MC category 1 */
+        57   1.22186   /* item Chocolate.04_OE category 1 */
+        58  -1.80445   /* item Chocolate.04_OE category 2 */
+        59  -2.29044   /* item Chocolate.05_OE category 1 */
+        60   0.48983   /* item Chocolate.05_OE category 2 */
+        61   1.84505   /* item Chocolate.05_OE category 3 */

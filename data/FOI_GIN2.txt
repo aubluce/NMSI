@@ -1,0 +1,428 @@
+================================================================================
+DDM - FOI                                                  Thu Mar 11 12:16 2021
+SUMMARY OF THE ESTIMATION
+===========================================================Build: Feb 28 2021===
+Estimation method was: Bock-Aitkin Quadrature with 80 nodes and node range (-6.000,6.000)
+No node filtering not applicable
+Xsi increment max:    1.00000
+FacOldXsi:    0.00000
+Assumed population distribution was: Gaussian
+Location constraint was: CASES
+Scale constraint was: Not applicable
+The Data File: DDM_FOI_scores2.txt
+The format:  responses 1-28
+No case weights
+The regression model:
+Grouping Variables:
+The item model: item+item*step
+Slopes are fixed
+Cases in file: 394  Cases in estimation: 393
+Final Deviance:                                5349.28646
+Akaike Information Criterion (AIC):            5473.28646
+Akaike Information Criterion Corrected (AICc): 5456.62567
+Bayesian Information Criterion (BIC):          5719.66266
+Total number of estimated parameters: 62
+The number of iterations: 96
+Termination criteria:  Max iterations=1000,Parameter Change= 0.00010
+                       Deviance Change= 0.00010
+Iterations terminated because the convergence criteria were reached
+Random number generation seed:    1.00000
+Number of nodes used when drawing PVs: 2000
+Number of nodes used when computing fit: 200
+Number of plausible values to draw: 5
+Maximum number of iterations without a deviance improvement: 100
+Maximum number of Newton steps for each parameter in M-step: 10
+Value for obtaining finite MLEs for zero/perfects:    0.30000
+
+================================================================================
+================================================================================
+DDM - FOI                                                  Thu Mar 11 12:16 2021
+TABLES OF RESPONSE MODEL PARAMETER ESTIMATES
+===========================================================Build: Feb 28 2021===
+TERM 1: item
+--------------------------------------------------------------------------------------------------------------
+TERM 1: item
+
+   VARIABLES                               UNWEIGHTED FIT             WEIGHTED FIT
+---------------                        -----------------------   -----------------------
+     item           ESTIMATE  ERROR^   MNSQ       CI        T    MNSQ       CI        T
+--------------------------------------------------------------------------------------------------------------
+ 1   Pvalue.01_M..    0.553   0.143    0.98 ( 0.70, 1.30) -0.1   0.98 ( 0.78, 1.22) -0.2
+ 2   Helpline.01..    0.452   0.134    1.02 ( 0.71, 1.29)  0.2   1.00 ( 0.81, 1.19)  0.1
+ 3   Cats.01_MC       0.594   0.067    0.99 ( 0.86, 1.14) -0.1   0.99 ( 0.89, 1.11) -0.1
+ 4   Literature...   -0.248   0.059    1.01 ( 0.86, 1.14)  0.2   1.01 ( 0.93, 1.07)  0.2
+ 5   Literature...   -0.707   0.084    1.01 ( 0.78, 1.22)  0.1   1.01 ( 0.85, 1.15)  0.2
+ 6   DrugTrial.1..    0.433   0.103    1.03 ( 0.71, 1.29)  0.3   1.03 ( 0.73, 1.27)  0.2
+ 7   DrugTrial.1..   -0.056   0.132    1.01 ( 0.70, 1.30)  0.1   1.01 ( 0.84, 1.16)  0.2
+ 8   DrugTrial.0..   -0.719   0.257    1.02 ( 0.67, 1.33)  0.2   1.01 ( 0.82, 1.18)  0.2
+ 9   DrugTrial.0..    0.867   0.144    1.12 ( 0.67, 1.33)  0.7   1.03 ( 0.59, 1.41)  0.2
+ 10  DrugTrial.0..    0.357   0.207    0.94 ( 0.53, 1.47) -0.2   0.96 ( 0.72, 1.28) -0.3
+ 11  DrugTrial.0..    0.452   0.397    1.00 ( 0.36, 1.64)  0.1   1.00 ( 0.40, 1.60)  0.1
+ 12  DrugTrial.1..   -0.683   0.178    1.04 ( 0.53, 1.47)  0.3   1.06 ( 0.55, 1.45)  0.3
+ 13  DrugTrial.1..   -0.748   0.244    1.06 ( 0.36, 1.64)  0.3   1.06 ( 0.58, 1.42)  0.3
+ 14  DrugTrial.1..   -0.339   0.429    0.93 ( 0.16, 1.84) -0.0   0.93 ( 0.39, 1.61) -0.1
+ 15  DrugTrial.1..   -1.387   1.127    0.84 ( 0.00, 2.24) -0.1   0.92 ( 0.00, 2.29)  0.1
+ 16  DrugTrial.1..    0.172   0.389    0.90 ( 0.16, 1.84) -0.1   0.91 ( 0.50, 1.50) -0.3
+ 17  DrugTrial.1..   -0.336   0.614    0.93 ( 0.00, 2.24)  0.1   0.94 ( 0.15, 1.85) -0.0
+ 18  DrugTrial.0..    0.259   0.214    1.01 ( 0.53, 1.47)  0.1   1.01 ( 0.72, 1.28)  0.1
+ 19  DrugTrial.0..    0.445   0.924    0.93 ( 0.00, 2.24)  0.1   0.94 ( 0.56, 1.44) -0.3
+ 20  DrugTrial.0..   -0.181   0.136    1.01 ( 0.53, 1.47)  0.1   1.01 ( 0.70, 1.30)  0.1
+ 21  DrugTrial.1..   -0.558   0.576    0.80 ( 0.00, 2.24) -0.1   0.85 ( 0.07, 1.93) -0.2
+ 22  GuineaPig.0..    0.500   0.411    1.00 ( 0.16, 1.84)  0.1   1.01 ( 0.42, 1.58)  0.1
+ 23  MPG.01_MC        0.130   0.385    1.00 ( 0.36, 1.64)  0.1   1.00 ( 0.41, 1.59)  0.1
+ 24  MPG.02_MC        0.952   0.467    0.94 ( 0.16, 1.84) -0.0   0.95 ( 0.27, 1.73) -0.0
+ 25  WebClicks.0..   -0.282   0.364    1.05 ( 0.36, 1.64)  0.3   1.06 ( 0.46, 1.54)  0.3
+ 26  Chocolate.0..    1.180   0.146    0.97 ( 0.68, 1.32) -0.1   0.97 ( 0.59, 1.41) -0.1
+ 27  Chocolate.0..   -0.040   0.130    0.96 ( 0.68, 1.32) -0.2   0.98 ( 0.62, 1.38) -0.0
+ 28  Chocolate.0..    0.348   0.240    0.97 ( 0.68, 1.32) -0.1   0.98 ( 0.89, 1.11) -0.4
+--------------------------------------------------------------------------------
+An asterisk next to a parameter estimate indicates that it is constrained
+Separation Reliability= 0.558
+Chi-square test of parameter equality=    364.22, df=28, Sig Level=0.000
+^ Quick standard errors have been used
+Term is a fixed effect
+
+TERM 2: item*step
+----------------------------------------------------------------------------------------------------------------------------
+TERM 2: item*step
+
+          VARIABLES                                       UNWEIGHTED FIT             WEIGHTED FIT
+------------------------------                        -----------------------   -----------------------
+     item         category         ESTIMATE  ERROR^   MNSQ       CI        T    MNSQ       CI        T
+----------------------------------------------------------------------------------------------------------------------------
+ 1   Pvalue.01_M..    0                               0.99 ( 0.70, 1.30) -0.0   0.99 ( 0.91, 1.09) -0.3
+ 1   Pvalue.01_M..    1              0.168   0.249    1.00 ( 0.70, 1.30)  0.0   1.00 ( 0.77, 1.23)  0.0
+ 1   Pvalue.01_M..    2             -0.168*           0.97 ( 0.70, 1.30) -0.1   0.98 ( 0.67, 1.33) -0.1
+ 2   Helpline.01..    0                               0.99 ( 0.71, 1.29) -0.0   0.99 ( 0.92, 1.08) -0.3
+ 2   Helpline.01..    1              0.238   0.242    0.99 ( 0.71, 1.29) -0.0   0.99 ( 0.77, 1.23) -0.0
+ 2   Helpline.01..    2             -0.238*           1.05 ( 0.71, 1.29)  0.4   1.02 ( 0.73, 1.27)  0.2
+ 3   Cats.01_MC       0                               1.00 ( 0.86, 1.14) -0.0   1.00 ( 0.96, 1.04) -0.2
+ 3   Cats.01_MC       1              0.136   0.115    1.00 ( 0.86, 1.14)  0.0   1.00 ( 0.89, 1.11) -0.0
+ 3   Cats.01_MC       2             -0.136*           0.98 ( 0.86, 1.14) -0.2   0.99 ( 0.84, 1.16) -0.1
+ 4   Literature...    0                               1.03 ( 0.86, 1.14)  0.4   1.02 ( 0.92, 1.08)  0.4
+ 4   Literature...    1              0.846   0.136    0.99 ( 0.86, 1.14) -0.1   1.00 ( 0.82, 1.18)  0.0
+ 4   Literature...    2             -0.846*           1.00 ( 0.86, 1.14) -0.0   1.00 ( 0.96, 1.04) -0.2
+ 5   Literature...    0                               1.03 ( 0.78, 1.22)  0.3   1.01 ( 0.42, 1.58)  0.1
+ 5   Literature...    1             -1.073   0.160    1.00 ( 0.78, 1.22)  0.0   1.00 ( 0.86, 1.14) -0.0
+ 5   Literature...    2              0.995   0.191    1.00 ( 0.78, 1.22)  0.1   1.00 ( 0.79, 1.21)  0.1
+ 5   Literature...    3              0.078*           1.01 ( 0.78, 1.22)  0.2   1.02 ( 0.92, 1.08)  0.4
+ 6   DrugTrial.1..    0                               1.03 ( 0.71, 1.29)  0.3   1.03 ( 0.91, 1.09)  0.6
+ 6   DrugTrial.1..    1             -0.055   0.219    1.00 ( 0.71, 1.29)  0.1   1.00 ( 0.84, 1.16)  0.1
+ 6   DrugTrial.1..    2              1.607   0.513    1.21 ( 0.71, 1.29)  1.4   1.02 ( 0.09, 1.91)  0.2
+ 6   DrugTrial.1..    3             -1.552*           0.98 ( 0.71, 1.29) -0.1   1.01 ( 0.62, 1.38)  0.1
+ 7   DrugTrial.1..    0                               1.02 ( 0.70, 1.30)  0.2   1.02 ( 0.84, 1.16)  0.2
+ 7   DrugTrial.1..    1              0.240   0.245    1.00 ( 0.70, 1.30)  0.0   1.00 ( 0.78, 1.22)  0.0
+ 7   DrugTrial.1..    2             -0.240*           1.01 ( 0.70, 1.30)  0.1   1.01 ( 0.87, 1.13)  0.1
+ 9   DrugTrial.0..    0                               1.01 ( 0.67, 1.33)  0.1   1.01 ( 0.87, 1.13)  0.1
+ 9   DrugTrial.0..    1             -0.071   0.254    0.98 ( 0.67, 1.33) -0.0   0.99 ( 0.76, 1.24) -0.1
+ 9   DrugTrial.0..    2              0.552   0.467    1.09 ( 0.67, 1.33)  0.6   0.99 ( 0.24, 1.76)  0.1
+ 9   DrugTrial.0..    3             -0.480*           1.35 ( 0.67, 1.33)  1.9   1.02 ( 0.15, 1.85)  0.2
+ 10  DrugTrial.0..    0                               0.98 ( 0.53, 1.47)  0.0   0.99 ( 0.87, 1.13) -0.2
+ 10  DrugTrial.0..    1              0.423   0.403    1.00 ( 0.53, 1.47)  0.1   1.00 ( 0.58, 1.42)  0.1
+ 10  DrugTrial.0..    2             -0.423*           0.91 ( 0.53, 1.47) -0.3   0.94 ( 0.64, 1.36) -0.3
+ 11  DrugTrial.0..    0                               1.01 ( 0.36, 1.64)  0.1   1.02 ( 0.50, 1.50)  0.1
+ 11  DrugTrial.0..    1             -1.372   0.476    1.01 ( 0.36, 1.64)  0.1   1.01 ( 0.74, 1.26)  0.1
+ 11  DrugTrial.0..    2              1.372*           0.99 ( 0.36, 1.64)  0.1   0.98 ( 0.00, 2.13)  0.1
+ 12  DrugTrial.1..    0                               0.96 ( 0.53, 1.47) -0.1   1.05 ( 0.01, 1.99)  0.2
+ 12  DrugTrial.1..    1              0.026   0.353    1.02 ( 0.53, 1.47)  0.2   1.01 ( 0.32, 1.68)  0.1
+ 12  DrugTrial.1..    2              0.145   0.403    1.04 ( 0.53, 1.47)  0.3   1.02 ( 0.57, 1.43)  0.2
+ 12  DrugTrial.1..    3             -0.171*           1.10 ( 0.53, 1.47)  0.5   1.09 ( 0.85, 1.15)  1.1
+ 13  DrugTrial.1..    0                               1.33 ( 0.36, 1.64)  1.0   1.10 ( 0.00, 2.85)  0.4
+ 13  DrugTrial.1..    1             -1.172   0.466    1.01 ( 0.36, 1.64)  0.2   1.02 ( 0.61, 1.39)  0.1
+ 13  DrugTrial.1..    2              1.098   0.563    1.00 ( 0.36, 1.64)  0.1   1.00 ( 0.37, 1.63)  0.1
+ 13  DrugTrial.1..    3              0.073*           1.03 ( 0.36, 1.64)  0.2   1.03 ( 0.79, 1.21)  0.3
+ 14  DrugTrial.1..    0                               0.92 ( 0.16, 1.84) -0.0   0.99 ( 0.01, 1.99)  0.1
+ 14  DrugTrial.1..    1             -0.608   0.606    0.99 ( 0.16, 1.84)  0.1   0.99 ( 0.88, 1.12) -0.1
+ 14  DrugTrial.1..    2              0.608*           0.91 ( 0.16, 1.84) -0.1   0.93 ( 0.64, 1.36) -0.4
+ 16  DrugTrial.1..    0                               0.89 ( 0.16, 1.84) -0.1   0.91 ( 0.60, 1.40) -0.4
+ 16  DrugTrial.1..    1             -0.181   0.627    1.00 ( 0.16, 1.84)  0.1   1.00 ( 0.67, 1.33)  0.0
+ 16  DrugTrial.1..    2              0.181*           0.91 ( 0.16, 1.84) -0.1   0.95 ( 0.40, 1.60) -0.1
+ 17  DrugTrial.1..    0                               0.93 ( 0.00, 2.24)  0.1   0.99 ( 0.00, 2.29)  0.2
+ 17  DrugTrial.1..    1             -0.395   0.914    0.99 ( 0.00, 2.24)  0.2   0.99 ( 0.65, 1.35) -0.0
+ 17  DrugTrial.1..    2              0.395*           0.92 ( 0.00, 2.24)  0.1   0.93 ( 0.52, 1.48) -0.3
+ 18  DrugTrial.0..    0                               1.04 ( 0.53, 1.47)  0.2   1.04 ( 0.84, 1.16)  0.5
+ 18  DrugTrial.0..    1              0.014   0.364    1.01 ( 0.53, 1.47)  0.1   1.01 ( 0.74, 1.26)  0.1
+ 18  DrugTrial.0..    2             -0.014*           0.97 ( 0.53, 1.47) -0.1   0.96 ( 0.64, 1.36) -0.2
+ 20  DrugTrial.0..    0                               1.05 ( 0.53, 1.47)  0.3   1.07 ( 0.67, 1.33)  0.4
+ 20  DrugTrial.0..    1              2.468   0.423    0.90 ( 0.53, 1.47) -0.3   1.00 ( 0.00, 2.88)  0.3
+ 20  DrugTrial.0..    2             -1.647   0.449    1.01 ( 0.53, 1.47)  0.1   1.00 ( 0.43, 1.57)  0.1
+ 20  DrugTrial.0..    3             -0.820*           0.94 ( 0.53, 1.47) -0.2   0.94 ( 0.82, 1.18) -0.7
+ 21  DrugTrial.1..    0                               0.78 ( 0.00, 2.24) -0.2   0.90 ( 0.00, 2.29) -0.0
+ 21  DrugTrial.1..    1              0.502   1.120    0.94 ( 0.00, 2.24)  0.1   0.97 ( 0.00, 2.30)  0.2
+ 21  DrugTrial.1..    2             -0.502*           0.84 ( 0.00, 2.24) -0.1   0.86 ( 0.52, 1.48) -0.5
+ 22  GuineaPig.0..    0                               1.05 ( 0.16, 1.84)  0.3   1.05 ( 0.77, 1.23)  0.4
+ 22  GuineaPig.0..    1             -0.273   0.628    1.02 ( 0.16, 1.84)  0.2   1.02 ( 0.67, 1.33)  0.1
+ 22  GuineaPig.0..    2              0.273*           0.91 ( 0.16, 1.84) -0.1   0.97 ( 0.06, 1.94)  0.1
+ 23  MPG.01_MC        0                               1.05 ( 0.36, 1.64)  0.3   1.03 ( 0.35, 1.65)  0.2
+ 23  MPG.01_MC        1             -1.281   0.476    1.00 ( 0.36, 1.64)  0.1   1.00 ( 0.75, 1.25)  0.1
+ 23  MPG.01_MC        2              1.281*           0.95 ( 0.36, 1.64) -0.0   0.97 ( 0.17, 1.83)  0.1
+ 24  MPG.02_MC        0                               0.94 ( 0.16, 1.84) -0.0   0.94 ( 0.80, 1.20) -0.6
+ 24  MPG.02_MC        1             -0.528   0.630    0.95 ( 0.16, 1.84)  0.0   0.96 ( 0.66, 1.34) -0.2
+ 24  MPG.02_MC        2              0.528*           0.94 ( 0.16, 1.84)  0.0   0.98 ( 0.00, 2.63)  0.2
+ 25  WebClicks.0..    0                               1.10 ( 0.36, 1.64)  0.4   1.06 ( 0.14, 1.86)  0.3
+ 25  WebClicks.0..    1             -1.082   0.465    1.01 ( 0.36, 1.64)  0.1   1.01 ( 0.85, 1.15)  0.1
+ 25  WebClicks.0..    2              1.082*           1.04 ( 0.36, 1.64)  0.2   1.03 ( 0.52, 1.48)  0.2
+ 26  Chocolate.0..    0                               0.95 ( 0.68, 1.32) -0.3   0.96 ( 0.71, 1.29) -0.2
+ 26  Chocolate.0..    1              1.222   0.294    0.96 ( 0.68, 1.32) -0.2   1.00 ( 0.22, 1.78)  0.1
+ 26  Chocolate.0..    2             -1.804   0.346    0.98 ( 0.68, 1.32) -0.1   0.98 ( 0.53, 1.47) -0.0
+ 26  Chocolate.0..    3              0.583*           0.99 ( 0.68, 1.32) -0.0   1.02 ( 0.00, 2.30)  0.2
+ 27  Chocolate.0..    0                               0.98 ( 0.68, 1.32) -0.1   0.99 ( 0.12, 1.88)  0.1
+ 27  Chocolate.0..    1             -2.290   0.358    1.02 ( 0.68, 1.32)  0.2   1.02 ( 0.92, 1.08)  0.4
+ 27  Chocolate.0..    2              0.490   0.244    1.02 ( 0.68, 1.32)  0.2   1.02 ( 0.81, 1.19)  0.2
+ 27  Chocolate.0..    3              1.845   0.517    1.17 ( 0.68, 1.32)  1.0   1.02 ( 0.11, 1.89)  0.2
+ 27  Chocolate.0..    4             -0.044*           0.74 ( 0.68, 1.32) -1.7   0.94 ( 0.25, 1.75) -0.1
+--------------------------------------------------------------------------------
+An asterisk next to a parameter estimate indicates that it is constrained
+^ Quick standard errors have been used
+================================================================================
+================================================================================
+DDM - FOI                                                  Thu Mar 11 12:16 2021
+TABLES OF POPULATION MODEL PARAMETER ESTIMATES
+===========================================================Build: Feb 28 2021===
+REGRESSION COEFFICIENTS
+
+
+
+Regression Variable
+
+CONSTANT                   0.000*
+-----------------------------------------------
+An asterisk next to a parameter estimate indicates that it is constrained
+===============================================
+UNCONDITIONAL COVARIANCE/CORRELATION MATRIX
+
+
+
+Dimension
+
+Dimension_1
+-------------------------------------------
+Variance                   0.085  ( 0.006)
+-------------------------------------------
+An asterisk next to a parameter estimate indicates that it is constrained
+
+===========================================
+
+RELIABILITY COEFFICIENTS
+------------------------
+
+Dimension: (Dimension_1)
+-----------------------
+ MLE Person separation RELIABILITY:   0.233
+ WLE Person separation RELIABILITY:   0.034
+ EAP/PV RELIABILITY:                  0.218
+------------------------
+================================================================================
+DDM - FOI                                                  Thu Mar 11 12:16 2021
+MAP OF LATENT DISTRIBUTIONS AND RESPONSE MODEL PARAMETER ESTIMATES
+===========================================================Build: Feb 28 2021===
+             Terms in the Model (excl Step terms)
+
+                               +item
+----------------------------------------------------
+                |26                                |
+                |                                  |
+                |                                  |
+                |                                  |
+   1            |                                  |
+                |24                                |
+                |                                  |
+                |9                                 |
+                |                                  |
+                |                                  |
+                |                                  |
+               X|                                  |
+               X|                                  |
+               X|                                  |
+               X|3                                 |
+               X|1                                 |
+               X|                                  |
+             XXX|22                                |
+              XX|2 6 11 19                         |
+            XXXX|                                  |
+             XXX|10                                |
+            XXXX|28                                |
+           XXXXX|                                  |
+            XXXX|18                                |
+         XXXXXXX|                                  |
+          XXXXXX|16                                |
+        XXXXXXXX|23                                |
+        XXXXXXXX|                                  |
+         XXXXXXX|                                  |
+      XXXXXXXXXX|                                  |
+   0  XXXXXXXXXX|                                  |
+       XXXXXXXXX|7 27                              |
+      XXXXXXXXXX|                                  |
+         XXXXXXX|                                  |
+       XXXXXXXXX|20                                |
+         XXXXXXX|                                  |
+         XXXXXXX|4                                 |
+         XXXXXXX|25                                |
+           XXXXX|14 17                             |
+            XXXX|                                  |
+              XX|                                  |
+              XX|                                  |
+             XXX|                                  |
+              XX|                                  |
+              XX|21                                |
+               X|                                  |
+                |                                  |
+               X|12                                |
+               X|5 8                               |
+                |13                                |
+                |                                  |
+                |                                  |
+                |                                  |
+                |                                  |
+                |                                  |
+  -1            |                                  |
+                |                                  |
+                |                                  |
+                |                                  |
+                |15                                |
+====================================================
+Each 'X' represents 2.4 cases
+
+====================================================
+================================================================================
+DDM - FOI                                                  Thu Mar 11 12:16 2021
+MAP OF LATENT DISTRIBUTIONS AND THRESHOLDS
+===========================================================Build: Feb 28 2021===
+                                              Generalised-Item Thresholds
+
+
+--------------------------------------------------------------------------------------
+                                              |9.3 11.2 23.2 24.2 26.3 27.4          |
+                                              |22.2                                  |
+                                              |                                      |
+                                             X|3.2                                   |
+   1                                          |9.2                                   |
+                                              |1.2 27.3                              |
+                                              |25.2                                  |
+                                             X|                                      |
+                                              |2.2 26.2                              |
+                                              |6.3                                   |
+                                             X|16.2                                  |
+                                            XX|18.2                                  |
+                                          XXXX|6.2 10.2                              |
+                                           XXX|26.1                                  |
+                                          XXXX|                                      |
+                                        XXXXXX|                                      |
+                                         XXXXX|                                      |
+                                  XXXXXXXXXXXX|14.2                                  |
+                                     XXXXXXXXX|19                                    |
+                             XXXXXXXXXXXXXXXXX|                                      |
+                                  XXXXXXXXXXXX|17.2                                  |
+                               XXXXXXXXXXXXXXX|7.2 28                                |
+                          XXXXXXXXXXXXXXXXXXXX|9.1                                   |
+                               XXXXXXXXXXXXXXX|                                      |
+                XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX|                                      |
+                     XXXXXXXXXXXXXXXXXXXXXXXXX|3.1 5.3 13.3 24.1 27.2                |
+               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX|1.1                                   |
+             XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX|                                      |
+                    XXXXXXXXXXXXXXXXXXXXXXXXXX|2.1                                   |
+      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX|10.1 20.3                             |
+   0  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX|4.2 6.1                               |
+            XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX|                                      |
+      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX|                                      |
+                 XXXXXXXXXXXXXXXXXXXXXXXXXXXXX|12.3 22.1                             |
+         XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX|                                      |
+                  XXXXXXXXXXXXXXXXXXXXXXXXXXXX|18.1                                  |
+                    XXXXXXXXXXXXXXXXXXXXXXXXXX|21.2                                  |
+                  XXXXXXXXXXXXXXXXXXXXXXXXXXXX|20.2                                  |
+                          XXXXXXXXXXXXXXXXXXXX|5.2 13.2 20.1                         |
+                             XXXXXXXXXXXXXXXXX|                                      |
+                                     XXXXXXXXX|16.1                                  |
+                                      XXXXXXXX|4.1 7.1                               |
+                                 XXXXXXXXXXXXX|                                      |
+                                     XXXXXXXXX|                                      |
+                                       XXXXXXX|                                      |
+                                            XX|                                      |
+                                             X|12.2                                  |
+                                            XX|                                      |
+                                            XX|8                                     |
+                                              |                                      |
+                                              |                                      |
+                                             X|                                      |
+                                             X|21.1                                  |
+                                             X|                                      |
+                                              |                                      |
+  -1                                          |11.1                                  |
+                                              |17.1                                  |
+                                              |                                      |
+                                              |                                      |
+                                              |5.1 12.1 13.1 14.1 15 23.1 25.1 27.1  |
+======================================================================================
+Each 'X' represents 0.6 cases
+The labels for thresholds show the levels of
+    item,and category,respectively
+
+======================================================================================
+================================================================================
+DDM - FOI                                                  Thu Mar 11 12:16 2021
+TABLES OF GIN Thresholds
+===========================================================Build: Feb 28 2021===
+GIN Number  Threshold           GIN Labels
+--------------------------------------------------------------------------------
+1.1	     0.143		item	1	Pvalue.01_MC	
+1.2	     0.964		item	1	Pvalue.01_MC	
+2.1	     0.067		item	2	Helpline.01_MC	
+2.2	     0.837		item	2	Helpline.01_MC	
+3.1	     0.170		item	3	Cats.01_MC	
+3.2	     1.018		item	3	Cats.01_MC	
+4.1	    -0.461		item	4	Literature.02_OE	
+4.2	    -0.035		item	4	Literature.02_OE	
+5.1	    -1.912		item	5	Literature.03_OE	
+5.2	    -0.344		item	5	Literature.03_OE	
+5.3	     0.187		item	5	Literature.03_OE	
+6.1	    -0.029		item	6	DrugTrial.1a.2_MC	
+6.2	     0.664		item	6	DrugTrial.1a.2_MC	
+6.3	     0.794		item	6	DrugTrial.1a.2_MC	
+7.1	    -0.440		item	7	DrugTrial.1c.2_MC	
+7.2	     0.328		item	7	DrugTrial.1c.2_MC	
+8.1	    -0.720		item	8	DrugTrial.0a.2_MC	
+9.1	     0.307		item	9	DrugTrial.0c.2_MC	
+9.2	     0.985		item	9	DrugTrial.0c.2_MC	
+9.3	     1.364		item	9	DrugTrial.0c.2_MC	
+10.1	     0.036		item	10	DrugTrial.0b.1_MC	
+10.2	     0.679		item	10	DrugTrial.0b.1_MC	
+11.1	    -0.979		item	11	DrugTrial.0d.1_MC	
+11.2	     1.883		item	11	DrugTrial.0d.1_MC	
+12.1	    -1.254		item	12	DrugTrial.1b.2_MC	
+12.2	    -0.650		item	12	DrugTrial.1b.2_MC	
+12.3	    -0.131		item	12	DrugTrial.1b.2_MC	
+13.1	    -2.030		item	13	DrugTrial.1d.2_MC	
+13.2	    -0.338		item	13	DrugTrial.1d.2_MC	
+13.3	     0.175		item	13	DrugTrial.1d.2_MC	
+14.1	    -1.161		item	14	DrugTrial.1a.4_MC	
+14.2	     0.483		item	14	DrugTrial.1a.4_MC	
+15.1	    -1.387		item	15	DrugTrial.1d.4_MC	
+16.1	    -0.396		item	16	DrugTrial.1a.5_MC	
+16.2	     0.740		item	16	DrugTrial.1a.5_MC	
+17.1	    -1.022		item	17	DrugTrial.1d.5_MC	
+17.2	     0.351		item	17	DrugTrial.1d.5_MC	
+18.1	    -0.216		item	18	DrugTrial.0b.4_MC	
+18.2	     0.734		item	18	DrugTrial.0b.4_MC	
+19.1	     0.445		item	19	DrugTrial.0c.4_MC	
+20.1	    -0.345		item	20	DrugTrial.0b.5_MC	
+20.2	    -0.289		item	20	DrugTrial.0b.5_MC	
+20.3	     0.004		item	20	DrugTrial.0b.5_MC	
+21.1	    -0.856		item	21	DrugTrial.1c.5_MC	
+21.2	    -0.259		item	21	DrugTrial.1c.5_MC	
+22.1	    -0.117		item	22	GuineaPig.04_MC	
+22.2	     1.117		item	22	GuineaPig.04_MC	
+23.1	    -1.221		item	23	MPG.01_MC	
+23.2	     1.480		item	23	MPG.01_MC	
+24.1	     0.182		item	24	MPG.02_MC	
+24.2	     1.721		item	24	MPG.02_MC	
+25.1	    -1.463		item	25	WebClicks.01_MC	
+25.2	     0.899		item	25	WebClicks.01_MC	
+26.1	     0.652		item	26	Chocolate.04_OE	
+26.2	     0.818		item	26	Chocolate.04_OE	
+26.3	     1.944		item	26	Chocolate.04_OE	
+27.1	    -2.389		item	27	Chocolate.05_OE	
+27.2	     0.163		item	27	Chocolate.05_OE	
+27.3	     0.952		item	27	Chocolate.05_OE	
+27.4	     1.215		item	27	Chocolate.05_OE	
+28.1	     0.348		item	28	Chocolate.01b03_MCMC	
+================================================================================
