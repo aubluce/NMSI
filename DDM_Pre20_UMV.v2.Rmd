@@ -1,0 +1,241 @@
+---
+title: "UMV Pretest Fall 20 Calibration"
+author: 
+date: "3/9/2021"
+output: html_document
+toc: true
+toc_float: true
+---
+
+### 1. UMV (understanding measures of variability) Construct Map
+<a href="https://cr4cradmin.bear-apps.com/constructs/public/HxpdvrHpo2zUj65hjNZXyJuheExFSY" target = "_blank">Link </a> to construct map
+
+### 2. Items & Scoring Guides
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/60/scoring_guides/505/score_assignments" target = "_blank">CuppaJoe.01_OE  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/60/scoring_guides/187/score_assignments" target = "_blank">CuppaJoe.03_OE  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/58/scoring_guides/175/score_assignments" target = "_blank">CuppaJoe.04_MC </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/81/scoring_guides/151/score_assignments" target = "_blank">DogDiet.02_MC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/83/scoring_guides/152/score_assignments" target = "_blank">DogDiet.03_OE  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/57/scoring_guides/386/score_assignments" target = "_blank">GuineaPig.01_MC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/56/scoring_guides/435/score_assignments" target = "_blank">GuineaPig.02_MC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/82/scoring_guides/434/score_assignments" target = "_blank">GuineaPig.03_MC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/59/scoring_guides/340/score_assignments" target = "_blank">Inventions.01_MC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/58/scoring_guides/373/score_assignments" target = "_blank">Inventions.03ab_MCMC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/58/scoring_guides/342/score_assignments" target = "_blank">Inventions.04a_MConly  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/80/scoring_guides/190/score_assignments" target = "_blank">MMpacket.01ab_OE  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/56/scoring_guides/440/score_assignments" target = "_blank">MMpacket.02ab_NU  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/56/scoring_guides/441/score_assignments" target = "_blank">MMpacket.03ab_NU  </a>
+* <a href="hhttps://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/56/scoring_guides/442/score_assignments" target = "_blank">MMpacket.04ab_NU  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/56/scoring_guides/194/score_assignments" target = "_blank">MMpacket.05  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/57/scoring_guides/684/score_assignments" target = "_blank">Painting.01_OE  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/57/scoring_guides/277/score_assignments" target = "_blank">Painting.02_OE  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/60/scoring_guides/360/score_assignments" target = "_blank">PopSongs.01_MC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/59/scoring_guides/361/score_assignments" target = "_blank">PopSongs.01_MCOE  </a>
+
+##### Response choice distributions
+* See <a href="https://cr4cradmin.bear-apps.com/answers_reports?scheduled_activities=36" target = "_blank">answers report.  </a> 
+
+```{r setup, include=FALSE}
+require(WrightMap)
+require(tidyverse)
+require(RColorBrewer)
+require(knitr)
+require(kableExtra)
+
+knitr::opts_chunk$set(echo = TRUE)
+
+
+#Import ConQuest data
+UMV <- CQmodel(p.est = "data/UMV_WLE.txt", show = "data/UMV_SHOW.txt")
+
+#full item names
+i.names<-UMV$RMP$item$item
+i.names[1,] <- "CupJ.4_MC"
+i.names[2,] <- "Invent.4a_MC"
+i.names[3,] <- "Invent.3ab_MC2"
+i.names[4,] <- "Guinea.1_MC"
+i.names[5,] <- "Guinea.3_MC"
+i.names[6,] <- "Guinea.2_MC"
+i.names[7,] <- "CupJ.1_OE"
+i.names[8,] <- "DogDiet.2_MC"
+i.names[9,] <- "DogDiet.3_OE"
+i.names[10,] <- "Invent.1_MC" 
+i.names[11,] <- "Pop.1_MC" 
+i.names[12,] <- "Pop.1_MCOE" 
+i.names[13,] <- "MM.1ab_OE" 
+i.names[14,] <- "MM.5_OE" 
+i.names[15,] <- "MM.2ab_NU" 
+i.names[16,] <- "MM.3ab_NU" 
+i.names[17,] <- "MM.4ab_NU"
+i.names[18,] <- "CupJ.3_OE" 
+i.names[19,] <- "Paint.2_OE" 
+i.names[20,] <- "Paint.1_OE"
+itemnames <- sort(i.names)
+
+#thetas
+UMV_est<-UMV$p.est$`est (d1)`
+
+#move thresholds for items that skipped levels (by design)
+UMV_thresh <- make.thresholds(UMV) %>% 
+  as.data.frame()
+
+# mannually adjusting thresholds for skipped levels etc.
+
+# CupJoe4 - L2 --> L3 & L1 --> L2
+UMV_thresh[1, 3] <- UMV_thresh[1, 2]
+UMV_thresh[1, 2] <- UMV_thresh[1, 1]
+UMV_thresh[1, 1] <- NA
+
+# Invent.4a_MC - L1 --> L2
+UMV_thresh[2, 2] <- UMV_thresh[2, 1]
+UMV_thresh[2, 1] <- NA
+
+# Invent.3ab_MCNC - L2 --> L3 & L1 --> L2
+UMV_thresh[2, 3] <- UMV_thresh[2, 2]
+UMV_thresh[2, 2] <- UMV_thresh[2, 1]
+UMV_thresh[2, 1] <- NA
+
+# GuineaPig.1_MC - L2 --> L3 & L1 --> L2
+UMV_thresh[4, 3] <- UMV_thresh[4, 2]
+UMV_thresh[4, 2] <- UMV_thresh[4, 1]
+UMV_thresh[4, 1] <- NA
+
+# "GuineaPig.2_MC" - L2 --> L3 & L1 --> L2
+UMV_thresh[6, 3] <- UMV_thresh[6, 2]
+UMV_thresh[6, 2] <- UMV_thresh[6, 1]
+UMV_thresh[6, 1] <- NA
+
+# Invent.1_MC L2 --> L3 & L1 --> L2
+UMV_thresh[10, 3] <- UMV_thresh[10, 2]
+UMV_thresh[10, 2] <- UMV_thresh[10, 1]
+UMV_thresh[10, 1] <- NA
+
+# PopSongs.1_MC  L2 --> L3
+UMV_thresh[11, 3] <- UMV_thresh[11, 2]
+UMV_thresh[11, 2] <- NA
+
+# MMpacket.1ab
+UMV_thresh[13, 3] <- UMV_thresh[13, 2]
+UMV_thresh[13, 2] <- UMV_thresh[13, 1]
+UMV_thresh[13, 1] <- NA
+
+# get item rownames as the first column
+UMV_thresh <- UMV_thresh %>% 
+  rownames_to_column(., "item")
+
+UMV_thresh <- UMV_thresh %>% arrange(item)
+
+# get the right item names as set above
+UMV_thresh$item <- itemnames
+
+UMV_thresh <- UMV_thresh %>% arrange(item) 
+#View(UMV_thresh)
+
+# add col names for UMV_thresh df
+colnames(UMV_thresh) <- c("item", "L1", "L2 ", "L3", "L4")
+
+#get rid of item col for WrightMap 1
+thresh4wm1 <- UMV_thresh %>% select(-item)
+
+
+# transposing item_thresh for WM2
+library(tidyr)
+#transposing item_thresh to tt for Wright map #2 w/thresholds on x-axis   
+tt <- UMV_thresh %>%
+  gather(var, value, -item) %>% 
+  spread(item, value) 
+dim(tt) # 4 x 21
+
+# drop the first column
+tt <- tt[(1:4), (2:21)]
+
+# x-axis labels for Wright map #2
+itemnames2 <- c("L0 vs.L1", "L1 vs.L2", "L2 vs.L3", "L3 vs.L4")
+#colors for Wright map #2
+itemcolors <- c("#D7191C", "#2B83BA", "forestgreen", "blueviolet")
+
+#color code categories
+ncat <- ncol(thresh4wm1)
+nitems <- nrow(thresh4wm1)
+itemlevelcolors <- matrix(rep( RColorBrewer::brewer.pal(ncat, "Set1"), nitems), byrow=TRUE, ncol=ncat)
+
+```
+
+### 3. Wright Maps
+
+```{r plots, echo=FALSE, results = FALSE, fig.keep = 'all', message = FALSE, warning = FALSE, fig.align = "center"}
+
+#Wright map #1 (items on x-axis)
+wrightMap(UMV_est, thresh4wm1,
+          label.items = itemnames, 
+          label.items.srt = 65, 
+          thr.sym.col.fg = itemlevelcolors, 
+          thr.sym.col.bg = itemlevelcolors,
+          show.thr.lab = FALSE,
+          vertLines = TRUE,
+          axis.items="")
+
+#mean(UMV$p.est$`est (d1)`)
+#sd(UMV$p.est$`est (d1)`)
+
+#Wright map #2 (thresh on x-axis)
+wrightMap(UMV_est, tt,
+          label.items = itemnames2,
+          main.title   = "Wright Map: UMV (by thresholds)",
+          thr.sym.col.fg = itemcolors,
+          thr.sym.col.bg = itemcolors,
+          axis.items = "Threshold",
+          thr.lab.cex = 0.4)
+
+```
+
+```{r calib.results, echo=FALSE, results = FALSE}
+n.cases <- length(UMV_est)
+n.items <- length(i.names)
+eap.rel <- UMV$rel.coef[[3]]
+min.Wfit <- min(UMV$RMP$item$W.fit)
+max.Wfit <- max(UMV$RMP$item$W.fit)
+```
+#####   Calibration stats
+
+*  `r n.cases` cases (the overall DDM sample is 2,265. Of which, 422 are AP Stats students. 28 students excluded due to answering less than 20% of items; 3 more dropped for unknown reason.)
+*  `r n.items` scorable "units"
+*  EAP/PV Reliability: `r eap.rel`
+*  Weighted MNSQ range: `r min.Wfit` - `r max.Wfit`
+
+
+#####   Observations
+
+* Highest thresholds: Should these be relabeled as L4?
+   + CuppaJoe.01
+   + CuppaJoe.03
+   + DogDiet.03
+   + Inventions.3ab
+   + MM.01ab
+   + MM.04ab
+   + MM.05ab
+ 
+* High L1 thresholds: should these be relabeled as L2?
+    + DogDiet.02
+    + GuineaPig.02 (should this be dicotomously scored? Same applies to GuineaPig3)
+    + Inventions.3ab
+    + Pop.01_MC
+
+* Low L4 threshold: Should these be relabeled as L3 and push down the rest?
+    + Pop.01_MCOE
+
+* Low L3 thresholds: Should these be relabeled as L2?
+    + CuppaJoe.04
+    + Inventions.01
+
+### 4. Threshold Difficulty
+```{r tables, echo=FALSE, message = FALSE, warning = FALSE}
+
+knitr::kable(UMV_thresh, format = "html", digits = 2) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
+                full_width = TRUE, font_size = 12)
+
+```
+
+### 5. Item Analysis
+* <a href="https://drive.google.com/file/d/1QRlpodAXt9NBtsBO-cHRSWGyaYvv7I1n/view?usp=sharing" target = "_blank">Link to Item Analysis </a> (ConQuest output)   
