@@ -17,7 +17,7 @@ toc_float: true
 * <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/81/scoring_guides/151/score_assignments" target = "_blank">DogDiet.02_MC  </a>
 * <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/83/scoring_guides/152/score_assignments" target = "_blank">DogDiet.03_OE  </a>
 * <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/57/scoring_guides/386/score_assignments" target = "_blank">GuineaPig.01_MC  </a>
-* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/57/scoring_guides/151/score_assignments" target = "_blank">GuineaPig.02_MC  </a>
+* <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/56/scoring_guides/435/score_assignments" target = "_blank">GuineaPig.02_MC  </a>
 * <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/82/scoring_guides/434/score_assignments" target = "_blank">GuineaPig.03_MC  </a>
 * <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/59/scoring_guides/340/score_assignments" target = "_blank">Inventions.01_MC  </a>
 * <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/58/scoring_guides/373/score_assignments" target = "_blank">Inventions.03ab_MCMC  </a>
@@ -206,24 +206,27 @@ max.Wfit <- max(UMV$RMP$item$W.fit)
 
 #####   Observations
 
-*  Highest thresholds: Should these be relabeled as L4?
-  + CuppaJoe.01
-  + CuppaJoe.03
-  + DogDiet.03
-  + Inventions.3ab
-  + MM.01ab
-  + MM.04ab
-  + MM.05ab
-*  High L1 thresholds: should these be relabeled as L2?
-  + DogDiet.02
-  + GuineaPig.02 (should this be dicotomously scored? Same applies to GuineaPig3)
-  + Inventions.3ab
-  + Pop.01_MC
-*  Low L4 threshold: Should these be relabeled as L3 and push down the rest?
-  + Pop.01_MCOE
-  *  Low L3 thresholds: Should these be relabeled as L2?
-  + CuppaJoe.04
-  + Inventions.01
+* Highest thresholds: Should these be relabeled as L4?
+   + CuppaJoe.01
+   + CuppaJoe.03
+   + DogDiet.03
+   + Inventions.3ab
+   + MM.01ab
+   + MM.04ab
+   + MM.05ab
+ 
+* High L1 thresholds: should these be relabeled as L2?
+    + DogDiet.02
+    + GuineaPig.02 (should this be dicotomously scored? Same applies to GuineaPig3)
+    + Inventions.3ab
+    + Pop.01_MC
+
+* Low L4 threshold: Should these be relabeled as L3 and push down the rest?
+    + Pop.01_MCOE
+
+* Low L3 thresholds: Should these be relabeled as L2?
+    + CuppaJoe.04
+    + Inventions.01
 
 ### 4. Threshold Difficulty
 ```{r tables, echo=FALSE, message = FALSE, warning = FALSE}
