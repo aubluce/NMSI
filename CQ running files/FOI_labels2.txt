@@ -1,0 +1,32 @@
+===> item
+
+1	Pvalue.01_MC             
+2	Helpline.01_MC              
+3	Cats.01_MC            
+4	Literature.02_OE            
+5	Literature.03_OE
+6	DrugTrial.1a.2_MC
+7	DrugTrial.1c.2_MC
+8	DrugTrial.0a.2_MC
+9	DrugTrial.0c.2_MC
+10	DrugTrial.0b.1_MC
+11	DrugTrial.0d.1_MC
+12	DrugTrial.1b.2_MC
+13	DrugTrial.1d.2_MC
+14	DrugTrial.1a.4_MC
+15	DrugTrial.1d.4_MC
+16	DrugTrial.1a.5_MC
+17	DrugTrial.1d.5_MC
+18	DrugTrial.0b.4_MC
+19	DrugTrial.0c.4_MC
+20	DrugTrial.0b.5_MC
+21	DrugTrial.1c.5_MC              
+22	GuineaPig.04_MC                             
+23	MPG.01_MC                  
+24	MPG.02_MC              
+25	WebClicks.01_MC                  
+26	Chocolate.04_OE                
+27	Chocolate.05_OE     
+28	Chocolate.01b03_MCMC
+
+
