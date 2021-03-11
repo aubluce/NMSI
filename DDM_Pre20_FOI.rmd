@@ -1,6 +1,5 @@
 ---
 title: "DDM_Pre20_FOI"
-author: "Aubrey Condor"
 date: "3/5/2021"
 output: html_document
 ---
@@ -23,125 +22,176 @@ output: html_document
 * <a href="https://cr4cradmin.bear-apps.com/scoring_guides/public/UNe382WmSpEMu8xlZ63Qh187FbyHtl" target = "_blank">Chocolate.01b03_MCMC  </a>
 
 
-
+##### Response choice distributions
+* See <a href="https://cr4cradmin.bear-apps.com/answers_reports?scheduled_activities=36" target = "_blank">answers report.  </a> 
 
 ```{r setup, include=FALSE}
-library(TAM)
-library(dplyr)
-library(WrightMap)
-setwd("C:/Users/condo/PycharmProjects/NMSI_stat")
+require(WrightMap)
+require(tidyverse)
+require(RColorBrewer)
+require(knitr)
+require(kableExtra)
 
-# change file depending on the construct
-##############################################################################
-raw_resp <- read.csv("R_UMV.csv")
-##############################################################################
+knitr::opts_chunk$set(echo = TRUE)
 
-resp <- raw_resp[!!rowSums(!is.na(raw_resp)),]
-resp <- lapply(resp, as.numeric)
-resp <- as.data.frame(resp)
 
-mod1 <- tam(resp)
-item_param <- mod1$xsi$xsi #item parameters
-item_thresh <- tam.threshold(mod1) #thurst thresholds
-summary(mod1) # summary of the model
+#Import ConQuest data
+FOI <- CQmodel(p.est = "data/FOI_WLE.txt", show = "data/FOI_SHOW.txt")
 
-pers_abil <- mod1$person$EAP
+#full item names
+i.names<-FOI$RMP$item$item
+i.names[1,] <- "Pval_MC"
+i.names[2,] <- "Helpline_MC"
+i.names[3,] <- "Cats1_MC"
+i.names[4,] <- "Literature2_OE"
+i.names[5,] <- "Literature3_OE"
+i.names[6,] <- "Guinea4_MC"
+i.names[7,] <- "MPG1_MC"
+i.names[8,] <- "MPG2_MC"
+i.names[9,] <- "Webclicks1_MC"
+i.names[10,] <-	"Choco4_OE"
+i.names[11,] <-	"Choco5_OE"
+i.names[12,] <-	"Choco1b3_MC2" 
+itemnames <- sort(i.names)
 
-item_thresh['CuppaJoe.04_MC', 1] <- NA
-item_thresh['GuineaPig.01_MC', 1] <- NA
-item_thresh['Inventions.03ab_MCMC', 1] <- NA
-item_thresh['Inventions.04a_MConly', 1] <- NA
-item_thresh['Inventions.01_MC', 1] <- NA
-item_thresh['MMpacket.01ab_OE', 1] <- NA
-item_thresh['GuineaPig.02_MC', 1] <- NA
-item_thresh['PopSongs.01_MC', 2] <- NA
+#thetas
+FOI_est<-FOI$p.est$`est (d1)`
 
-#View(LDC_thresh)
-# add col names for LDC_thresh df
-#colnames(item_thresh) <- c("item", "L1", "L2 ", "L3", "L4")
+#move thresholds for items that skipped levels (by design)
+FOI_thresh <- make.thresholds(FOI) %>% 
+  as.data.frame() %>% 
+  mutate(V4 = NA)
+
+# mannually adjusting thresholds for skipped levels etc.
+
+# Pval - L2 --> L4, L1 --> L3
+FOI_thresh[1, 4] <- FOI_thresh[1, 2]
+FOI_thresh[1, 3] <- FOI_thresh[1, 1]
+FOI_thresh[1, 2] <- NA
+FOI_thresh[1, 1] <- NA
+
+# Helpline - L2 --> L4, L1 --> L2
+FOI_thresh[2, 4] <- FOI_thresh[2, 2]
+FOI_thresh[2, 2] <- FOI_thresh[2, 1]
+FOI_thresh[2, 1] <- NA
+
+# Cats - L3 --> L4
+FOI_thresh[3, 4] <- FOI_thresh[3, 3]
+FOI_thresh[3, 3] <- NA
+
+# MPG1 - L2 --> L3, L1 --> L2
+FOI_thresh[7, 3] <- FOI_thresh[7, 2]
+FOI_thresh[7, 2] <- FOI_thresh[7, 1]
+FOI_thresh[7, 1] <- NA
+
+# MPG2 - L2 --> L3, L1 --> L2
+FOI_thresh[8, 3] <- FOI_thresh[8, 2]
+FOI_thresh[8, 2] <- FOI_thresh[8, 1]
+FOI_thresh[8, 1] <- NA
+
+# Webclick - L2 --> L4, L1 --> L3
+FOI_thresh[9, 4] <- FOI_thresh[9, 2]
+FOI_thresh[9, 2] <- FOI_thresh[9, 1]
+FOI_thresh[9, 3] <- NA
+FOI_thresh[9, 1] <- NA
+
+# get item rownames as the first column
+FOI_thresh <- FOI_thresh %>% 
+  rownames_to_column(., "item")
+
+FOI_thresh <- FOI_thresh %>% arrange(item)
+
+# get the right item names as set above
+FOI_thresh$item <- itemnames
+
+View(FOI_thresh)
+
+# add col names for FOI_thresh df
+colnames(FOI_thresh) <- c("item", "L1", "L2 ", "L3", "L4", "L5")
+
 #get rid of item col for WrightMap 1
-#thresh4wm1 <- item_thresh %>% select(-item)
+thresh4wm1 <- FOI_thresh %>% select(-item)
+
+
 # transposing item_thresh for WM2
 library(tidyr)
 #transposing item_thresh to tt for Wright map #2 w/thresholds on x-axis   
-#tt <- item_thresh %>%
-#  gather(var, value, -item) %>% 
-#  spread(item, value) 
-#dim(tt) # 4 x 14
+tt <- FOI_thresh %>%
+  gather(var, value, -item) %>% 
+  spread(item, value) 
+dim(tt) # 5 x 10
+
 # drop the first column
-#tt <- tt[(1:4), (2:14)]
+tt <- tt[(1:5), (2:10)]
+
 # x-axis labels for Wright map #2
-#itemnames2 <- c("L0 vs.L1", "L1 vs.L2", "L2 vs.L3", "L3 vs.L4")
+itemnames2 <- c("L0 vs.L1", "L1 vs.L2", "L2 vs.L3", "L3 vs.L4", "L4 vs.L5")
 #colors for Wright map #2
-#itemcolors <- c("#D7191C", "#2B83BA", "forestgreen", "blueviolet")
+itemcolors <- c("#D7191C", "#2B83BA", "forestgreen", "blueviolet", "orange2")
+
 #color code categories
-#ncat <- ncol(thresh4wm1)
-#nitems <- nrow(thresh4wm1)
-#itemlevelcolors <- matrix(rep( RColorBrewer::brewer.pal(ncat, "Set1"), nitems), byrow=TRUE, ncol=ncat)
+ncat <- ncol(thresh4wm1)
+nitems <- nrow(thresh4wm1)
+itemlevelcolors <- matrix(rep( RColorBrewer::brewer.pal(ncat, "Set1"), nitems), byrow=TRUE, ncol=ncat)
+
 ```
 
 ### 3. Wright Maps
 
 ```{r plots, echo=FALSE, results = FALSE, fig.keep = 'all', message = FALSE, warning = FALSE, fig.align = "center"}
-#Wright map #1 (items on x-axis)
-library(RColorBrewer)
-ncat <- 5
-I <- ncol(mod1$resp)
-itemlevelcolors <- matrix(rep( RColorBrewer::brewer.pal(ncat, "Set1"), I),
-                           byrow=TRUE, ncol=ncat)
 
-wrightMap(pers_abil, item_thresh, thr.sym.col.fg=itemlevelcolors,
-          thr.sym.col.bg=itemlevelcolors,label.items.srt=65)
-#mean(LDC$p.est$`est (d1)`)
-#sd(LDC$p.est$`est (d1)`)
+#Wright map #1 (items on x-axis)
+wrightMap(FOI_est, thresh4wm1,
+          label.items = itemnames, 
+          label.items.srt = 65, 
+          thr.sym.col.fg = itemlevelcolors, 
+          thr.sym.col.bg = itemlevelcolors,
+          axis.items="")
+
+#mean(FOI$p.est$`est (d1)`)
+#sd(FOI$p.est$`est (d1)`)
+
 #Wright map #2 (thresh on x-axis)
-#wrightMap(item_est, tt,
-#          label.items = itemnames2,
-#          main.title   = "Wright Map: LDC (by thresholds)",
-#          thr.sym.col.fg = itemcolors,
-#          thr.sym.col.bg = itemcolors,
-#          axis.items = "Threshold")
+wrightMap(FOI_est, tt,
+          label.items = itemnames2,
+          main.title   = "Wright Map: FOI (by thresholds)",
+          thr.sym.col.fg = itemcolors,
+          thr.sym.col.bg = itemcolors,
+          axis.items = "Threshold")
+
 ```
 
 ```{r calib.results, echo=FALSE, results = FALSE}
-n.cases <- length(resp)
-n.items <- dim(item_thresh)[1]
-eap.rel <- mod1$EAP.rel
-#min.Wfit <- min(LDC$RMP$item$W.fit)
-#max.Wfit <- max(LDC$RMP$item$W.fit)
+n.cases <- length(FOI_est)
+n.items <- length(i.names)
+eap.rel <- FOI$rel.coef[[3]]
+min.Wfit <- min(FOI$RMP$item$W.fit)
+max.Wfit <- max(FOI$RMP$item$W.fit)
 ```
 #####   Calibration stats
 
 *  `r n.cases` cases (the overall DDM sample is 2,265. Of which, 422 are AP Stats students. 28 students excluded due to answering less than 20% of items; 3 more dropped for unknown reason.)
 *  `r n.items` scorable "units"
 *  EAP/PV Reliability: `r eap.rel`
-
+*  Weighted MNSQ range: `r min.Wfit` - `r max.Wfit`
 
 
 #####   Observations
 
-* Birthrate
-  + Multi-select item. Seems to be working well.
-* Discussion
-  + Multi-select with a single correct answer. Seems to be working.
-* Paternity
-* MPG
-  + The most correct choice scored at L4 but should be downgraded to L3.
-  + Not sure if partial credit (L2) is needed for this item. 
-* Cats
-    + Cats.02c very difficult. It asks about sampling method to support a claim. Try polytmous scoring?
-*  Twitter
-    + Twitter.01 L1 threshold very low: only 5% scored into 0. Should it be dichotomously scored?
-    + L3 thresholds are quite low. More like L2s. 
-    + Twitter3_MCMC is SR version of Claim + Explanation. Selecting all the "correct" explanations is rare/hard (L4) although selecting a couple (L3) is fairly easy/common.
-
+* Swim2_MC: The most difficult item. Frequency on the y-axis might be an appealing distractor. Better to be labeled as "number of respondents"?
+* Swim1_MC: Very easy as only two options are plausible.
+* Invent7's L3 appears to be more like Level 4.
+* AirQuality and GPA are parallel items but L2 and L3 locations are somewhat different. 
+* Birthday & Invent89 have a nice spread among the thresholds, while Titanic1b's thresholds are all squished. 
 
 ### 4. Threshold Difficulty
-#```{r tables, echo=FALSE, message = FALSE, warning = FALSE}
-#knitr::kable(item_thresh, format = "html", digits = 2) %>%
-#  kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
-#                full_width = TRUE, font_size = 12)
+```{r tables, echo=FALSE, message = FALSE, warning = FALSE}
+
+knitr::kable(FOI_thresh, format = "html", digits = 2) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
+                full_width = TRUE, font_size = 12)
+
 ```
 
 ### 5. Item Analysis
-* <a href="https://drive.google.com/file/d/1a3chPFPDbQ2-XYdyFu3kSCwGR9HkPwRC/view?usp=sharing" target = "_blank">Link to Item Analysis </a> (ConQuest output)
+* <a href="https://drive.google.com/file/d/1gaKwS-sWlXFbEKZlkMs9fg9ZuFWGvADp/view?usp=sharing" target = "_blank">Link to Item Analysis </a> (ConQuest output)   
