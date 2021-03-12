@@ -8,7 +8,7 @@ toc_float: true
 ---
 
 ### 1. UMV (understanding measures of variability) Construct Map
-<a href="https://cr4cradmin.bear-apps.com/constructs/public/HxpdvrHpo2zUj65hjNZXyJuheExFSY" target = "_blank">Link </a> to construct map
+<a href="https://docs.google.com/document/d/1PAFmB_z13bwVV6H52sjAN-37upwMKWVDGu--Aip7qhA/edit" target = "_blank">Link </a> to construct map
 
 ### 2. Items & Scoring Guides
 * <a href="https://cr4cradmin.bear-apps.com/scheduled_activities/36/activities/60/scoring_guides/505/score_assignments" target = "_blank">CuppaJoe.01_OE  </a>
@@ -70,7 +70,7 @@ i.names[17,] <- "MM.4ab_NU"
 i.names[18,] <- "CupJ.3_OE" 
 i.names[19,] <- "Paint.2_OE" 
 i.names[20,] <- "Paint.1_OE"
-itemnames <- sort(i.names)
+itemnames <- i.names
 
 #thetas
 UMV_est<-UMV$p.est$`est (d1)`
@@ -91,9 +91,9 @@ UMV_thresh[2, 2] <- UMV_thresh[2, 1]
 UMV_thresh[2, 1] <- NA
 
 # Invent.3ab_MCNC - L2 --> L3 & L1 --> L2
-UMV_thresh[2, 3] <- UMV_thresh[2, 2]
-UMV_thresh[2, 2] <- UMV_thresh[2, 1]
-UMV_thresh[2, 1] <- NA
+UMV_thresh[3, 3] <- UMV_thresh[3, 2]
+UMV_thresh[3, 2] <- UMV_thresh[3, 1]
+UMV_thresh[3, 1] <- NA
 
 # GuineaPig.1_MC - L2 --> L3 & L1 --> L2
 UMV_thresh[4, 3] <- UMV_thresh[4, 2]
@@ -105,7 +105,7 @@ UMV_thresh[6, 3] <- UMV_thresh[6, 2]
 UMV_thresh[6, 2] <- UMV_thresh[6, 1]
 UMV_thresh[6, 1] <- NA
 
-# Invent.1_MC L2 --> L3 & L1 --> L2
+# Invent.1_MC  L2 --> L3 & L1 --> L2
 UMV_thresh[10, 3] <- UMV_thresh[10, 2]
 UMV_thresh[10, 2] <- UMV_thresh[10, 1]
 UMV_thresh[10, 1] <- NA
@@ -123,19 +123,21 @@ UMV_thresh[13, 1] <- NA
 UMV_thresh <- UMV_thresh %>% 
   rownames_to_column(., "item")
 
-UMV_thresh <- UMV_thresh %>% arrange(item)
-
 # get the right item names as set above
 UMV_thresh$item <- itemnames
 
 UMV_thresh <- UMV_thresh %>% arrange(item) 
 #View(UMV_thresh)
 
+# get the alphabetically ordered itemnames
+itemnames <- UMV_thresh$item
+
 # add col names for UMV_thresh df
 colnames(UMV_thresh) <- c("item", "L1", "L2 ", "L3", "L4")
 
 #get rid of item col for WrightMap 1
 thresh4wm1 <- UMV_thresh %>% select(-item)
+
 
 
 # transposing item_thresh for WM2
